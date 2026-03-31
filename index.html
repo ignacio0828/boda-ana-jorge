@@ -544,7 +544,7 @@ async function checkCode(){
   if(!code) return;
 
   // Si no hay URL configurada, modo demo
-  if(SCRIPT_URL === 'TU_URL_DE_APPS_SCRIPT_AQUI'){
+  if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec'){
     const DEMO = {
       'MARIA2':{'name':'María García','maxSeats':2},
       'CARLOS1':{'name':'Carlos López','maxSeats':1},
@@ -637,7 +637,7 @@ async function sendRSVP(){
     attending: selectedAttend
   };
 
-  if(SCRIPT_URL !== 'TU_URL_DE_APPS_SCRIPT_AQUI'){
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec'){
     try{ await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}); }catch(e){}
   }
 
@@ -700,7 +700,7 @@ async function cancelRSVP(){
   if(!currentGuest) return;
   const btn = document.querySelector('.cancel-btn');
   btn.textContent='Cancelando...'; btn.disabled=true;
-  if(SCRIPT_URL !== 'TU_URL_DE_APPS_SCRIPT_AQUI'){
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec'){
     try{ await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({action:'cancel',code:currentGuest.code,name:currentGuest.name})}); }catch(e){}
   }
   document.getElementById('rsvpForm').style.display='none';
