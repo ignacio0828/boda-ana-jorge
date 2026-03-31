@@ -515,7 +515,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 
 <script>
 // ★ PON AQUÍ TU URL DE GOOGLE APPS SCRIPT
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec';
 
 // Datos de la boda para calendario
 const WEDDING = {
@@ -544,7 +544,7 @@ async function checkCode(){
   if(!code) return;
 
   // Si no hay URL configurada, modo demo
-  if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec'){
+  if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec'){
     const DEMO = {
       'MARIA2':{'name':'María García','maxSeats':2},
       'CARLOS1':{'name':'Carlos López','maxSeats':1},
@@ -630,15 +630,21 @@ async function sendRSVP(){
   document.getElementById('sendBtnIcon').textContent='';
   document.getElementById('sendBtnText').innerHTML='<span style="display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite"></span> Enviando...';
 
-  const payload = {
-    action:'confirm', code: currentGuest.code, name: currentGuest.name,
-    seats: selectedAttend==='yes'?selectedSeats:0,
-    allergy: document.getElementById('allergyInput').value.trim(),
-    attending: selectedAttend
-  };
+  const allergy = document.getElementById('allergyInput').value.trim();
+  const seats   = selectedAttend==='yes' ? selectedSeats : 0;
 
-  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec'){
-    try{ await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}); }catch(e){}
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec'){
+    try {
+      const params = new URLSearchParams({
+        action:    'confirm',
+        code:      currentGuest.code,
+        name:      currentGuest.name,
+        seats:     seats,
+        allergy:   allergy || '—',
+        attending: selectedAttend
+      });
+      await fetch(SCRIPT_URL + '?' + params.toString());
+    } catch(e) {}
   }
 
   showConfirmed(selectedAttend==='yes');
@@ -700,8 +706,11 @@ async function cancelRSVP(){
   if(!currentGuest) return;
   const btn = document.querySelector('.cancel-btn');
   btn.textContent='Cancelando...'; btn.disabled=true;
-  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbzp0kbVhsZKL-fXFWALfp8rj4IAdNdSE2cwBhYmki4EW10kheitLVURoFCDBbUSCZmm/exec'){
-    try{ await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({action:'cancel',code:currentGuest.code,name:currentGuest.name})}); }catch(e){}
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec'){
+    try{
+      const params = new URLSearchParams({ action:'cancel', code: currentGuest.code, name: currentGuest.name });
+      await fetch(SCRIPT_URL + '?' + params.toString());
+    }catch(e){}
   }
   document.getElementById('rsvpForm').style.display='none';
   const conf = document.getElementById('rsvpConfirmed');
