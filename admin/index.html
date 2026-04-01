@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="theme-color" content="#3a2820">
+<title>Admin — Boda Ana & Jorge</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#fdf8f2;--blush:#e8c5b0;--rose:#c97c6e;--deep-rose:#8b4a42;
+  --gold:#c9a96e;--dark:#3a2820;--green:#4a8b5a;--sidebar:#2a1810;
+  --card:#fff;--border:rgba(201,169,110,.2);
+}
+html{-webkit-text-size-adjust:100%}
+body{background:#f5ede3;font-family:'Lato',sans-serif;color:var(--dark);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* ── LOGIN ── */
+#loginScreen{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 30% 30%,rgba(232,197,176,.4) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 70%,rgba(139,74,66,.15) 0%,transparent 60%),#f5ede3;
+  padding:20px;
+}
+.login-card{
+  background:rgba(255,255,255,.85);backdrop-filter:blur(16px);
+  border:1px solid var(--border);border-radius:24px;
+  padding:40px 36px;max-width:380px;width:100%;
+  box-shadow:0 20px 60px rgba(139,74,66,.15);text-align:center;
+}
+.login-icon{font-size:40px;margin-bottom:16px;display:block}
+.login-pretitle{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.login-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--deep-rose);margin-bottom:6px}
+.login-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--rose);margin-bottom:28px}
+.login-field{margin-bottom:14px;text-align:left}
+.login-field label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:6px}
+.login-input{
+  width:100%;padding:13px 16px;border-radius:12px;
+  border:1.5px solid rgba(201,169,110,.35);
+  background:rgba(253,248,242,.9);font-family:'Lato',sans-serif;
+  font-size:14px;color:var(--dark);outline:none;transition:border .2s;
+}
+.login-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.15)}
+.login-btn{
+  width:100%;padding:14px;border:none;border-radius:12px;margin-top:6px;
+  background:linear-gradient(135deg,var(--deep-rose),var(--rose));
+  color:white;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;cursor:pointer;box-shadow:0 4px 16px rgba(139,74,66,.3);transition:all .3s;
+}
+.login-btn:active{transform:translateY(-1px)}
+.login-error{font-size:13px;color:var(--rose);margin-top:10px;font-style:italic;display:none}
+.login-error.show{display:block}
+
+/* ── LAYOUT ── */
+#adminScreen{display:none;min-height:100vh}
+#adminScreen.show{display:flex}
+.sidebar{
+  width:240px;min-height:100vh;background:var(--sidebar);
+  display:flex;flex-direction:column;flex-shrink:0;
+  position:fixed;top:0;left:0;bottom:0;z-index:50;
+  transition:transform .3s;
+}
+.sidebar-logo{padding:28px 20px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sidebar-pretitle{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:rgba(201,169,110,.6);text-transform:uppercase;margin-bottom:4px}
+.sidebar-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:rgba(255,255,255,.9)}
+.sidebar-sub{font-family:'Cormorant Garamond',serif;font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.sidebar-nav{flex:1;padding:16px 12px}
+.nav-item{
+  display:flex;align-items:center;gap:10px;padding:11px 14px;
+  border-radius:10px;cursor:pointer;margin-bottom:4px;
+  transition:all .2s;color:rgba(255,255,255,.55);font-size:13px;
+  border:none;background:none;width:100%;text-align:left;
+}
+.nav-item:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.85)}
+.nav-item.active{background:rgba(201,169,110,.18);color:var(--gold)}
+.nav-item-icon{font-size:16px;flex-shrink:0}
+.nav-item-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.08)}
+.logout-btn{
+  width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);
+  background:none;color:rgba(255,255,255,.4);font-family:'Cinzel',serif;
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;
+}
+.logout-btn:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
+
+/* MAIN */
+.main{margin-left:240px;flex:1;padding:28px 28px 60px;min-height:100vh}
+.page-header{margin-bottom:24px}
+.page-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--deep-rose);margin-bottom:4px}
+.page-sub{font-size:13px;color:#999}
+.refresh-row{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.refresh-btn{
+  display:flex;align-items:center;gap:6px;padding:9px 18px;border-radius:10px;
+  border:1px solid var(--border);background:white;color:var(--gold);
+  font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.refresh-btn:hover{background:var(--cream)}
+.refresh-btn.spinning .ri{animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.last-update{font-size:12px;color:#bbb;font-style:italic;font-family:'Cormorant Garamond',serif}
+
+/* VIEWS */
+.view{display:none}
+.view.active{display:block}
+
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:28px}
+.stat-card{
+  background:white;border:1px solid var(--border);border-radius:16px;
+  padding:20px 18px;text-align:center;
+  box-shadow:0 2px 12px rgba(139,74,66,.05);
+  transition:transform .2s;
+}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-icon{font-size:24px;margin-bottom:8px;display:block}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--deep-rose);line-height:1}
+.stat-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:#bbb;text-transform:uppercase;margin-top:4px}
+.stat-card.green .stat-num{color:var(--green)}
+.stat-card.gold .stat-num{color:#8a6a00}
+.stat-card.blue .stat-num{color:#1a56db}
+
+/* SECTION CARD */
+.section-card{background:white;border:1px solid var(--border);border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 12px rgba(139,74,66,.05)}
+.section-card-header{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(253,248,242,.6);
+}
+.section-card-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--deep-rose);text-transform:uppercase}
+.section-card-count{font-family:'Cormorant Garamond',serif;font-size:13px;color:#999}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:rgba(253,248,242,.8)}
+thead th{
+  font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;padding:12px 14px;
+  text-align:left;font-weight:500;border-bottom:1px solid var(--border);white-space:nowrap;
+}
+tbody tr{border-bottom:1px solid rgba(201,169,110,.08);transition:background .15s}
+tbody tr:hover{background:rgba(253,248,242,.7)}
+tbody td{padding:11px 14px;color:#555;font-size:13px;line-height:1.5;vertical-align:middle}
+tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--deep-rose)}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-family:'Cinzel',serif;letter-spacing:1px;white-space:nowrap}
+.badge-green{background:rgba(74,139,90,.1);color:#4a8b5a;border:1px solid rgba(74,139,90,.2)}
+.badge-red{background:rgba(139,74,66,.1);color:var(--deep-rose);border:1px solid rgba(139,74,66,.2)}
+.badge-yellow{background:rgba(201,169,110,.15);color:#8a6a00;border:1px solid rgba(201,169,110,.3)}
+.badge-grey{background:rgba(0,0,0,.05);color:#999;border:1px solid rgba(0,0,0,.08)}
+
+/* ACTION BTNS */
+.btn-row{display:flex;gap:6px;flex-wrap:wrap}
+.btn{
+  padding:6px 12px;border-radius:8px;border:none;cursor:pointer;
+  font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;
+  text-transform:uppercase;transition:all .2s;white-space:nowrap;
+}
+.btn-edit{background:rgba(201,169,110,.15);color:#8a6a00}
+.btn-edit:hover{background:rgba(201,169,110,.3)}
+.btn-delete{background:rgba(139,74,66,.1);color:var(--deep-rose)}
+.btn-delete:hover{background:rgba(139,74,66,.2)}
+.btn-wa{background:rgba(37,211,102,.12);color:#128C7E}
+.btn-wa:hover{background:rgba(37,211,102,.25)}
+.btn-primary{background:linear-gradient(135deg,var(--deep-rose),var(--rose));color:white;padding:10px 20px;border-radius:10px;font-size:9px;letter-spacing:2px;box-shadow:0 4px 12px rgba(139,74,66,.2)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-green{background:linear-gradient(135deg,#4a8b5a,#6aab7a);color:white;padding:10px 20px;border-radius:10px;font-size:9px;letter-spacing:2px}
+
+/* ADD FORM */
+.add-form{padding:20px;border-top:1px solid var(--border);background:rgba(253,248,242,.4);display:none}
+.add-form.show{display:block}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:14px}
+.form-field label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:5px}
+.form-input{
+  width:100%;padding:10px 13px;border-radius:10px;
+  border:1.5px solid rgba(201,169,110,.3);background:white;
+  font-size:13px;color:var(--dark);outline:none;transition:border .2s;
+}
+.form-input:focus{border-color:var(--gold)}
+.form-actions{display:flex;gap:10px;align-items:center}
+
+/* MODAL */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(40,18,10,.5);
+  z-index:200;display:none;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.show{display:flex}
+.modal{
+  background:white;border-radius:20px;padding:28px;
+  max-width:460px;width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);animation:fadeUp .3s ease;
+}
+.modal-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--deep-rose);margin-bottom:20px}
+.modal-actions{display:flex;gap:10px;margin-top:20px;justify-content:flex-end}
+.btn-cancel-modal{padding:10px 18px;border-radius:10px;border:1px solid var(--border);background:white;color:#999;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+
+/* LOADING */
+.loading-overlay{position:fixed;inset:0;background:rgba(253,248,242,.85);z-index:300;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+.loading-overlay.show{display:flex}
+.spinner{width:32px;height:32px;border:3px solid rgba(201,169,110,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+.loading-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--rose)}
+
+/* EMPTY STATE */
+.empty{text-align:center;padding:40px 20px;color:#ccc;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px}
+
+/* MOBILE TOGGLE */
+.mobile-toggle{display:none;position:fixed;top:16px;left:16px;z-index:60;width:40px;height:40px;background:var(--sidebar);border:none;border-radius:10px;color:white;font-size:20px;cursor:pointer;align-items:center;justify-content:center}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0;padding:70px 16px 60px}
+  .mobile-toggle{display:flex}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Cargando datos...</div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-card">
+    <span class="login-icon">🌸</span>
+    <p class="login-pretitle">Panel de administración</p>
+    <h1 class="login-title">Boda Ana & Jorge</h1>
+    <p class="login-sub">Acceso restringido · Solo organizadores</p>
+    <div class="login-field">
+      <label>Usuario</label>
+      <input class="login-input" id="loginUser" type="text" placeholder="usuario" autocomplete="username">
+    </div>
+    <div class="login-field">
+      <label>Contraseña</label>
+      <input class="login-input" id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Entrar</button>
+    <p class="login-error" id="loginError">❌ Usuario o contraseña incorrectos</p>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="adminScreen">
+  <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <p class="sidebar-pretitle">Admin Panel</p>
+      <div class="sidebar-title">Ana & Jorge</div>
+      <div class="sidebar-sub">12 Septiembre 2026</div>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" onclick="showView('dashboard')" id="nav-dashboard">
+        <span class="nav-item-icon">📊</span><span class="nav-item-label">Dashboard</span>
+      </button>
+      <button class="nav-item" onclick="showView('guests')" id="nav-guests">
+        <span class="nav-item-icon">👥</span><span class="nav-item-label">Invitados</span>
+      </button>
+      <button class="nav-item" onclick="showView('confirmed')" id="nav-confirmed">
+        <span class="nav-item-icon">✅</span><span class="nav-item-label">Confirmados</span>
+      </button>
+      <button class="nav-item" onclick="showView('cancelled')" id="nav-cancelled">
+        <span class="nav-item-icon">❌</span><span class="nav-item-label">Cancelados</span>
+      </button>
+      <button class="nav-item" onclick="showView('allergies')" id="nav-allergies">
+        <span class="nav-item-icon">🥗</span><span class="nav-item-label">Alergias</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="doLogout()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-sub">Resumen en tiempo real de la boda</p>
+      </div>
+      <div class="refresh-row">
+        <button class="refresh-btn" id="refreshBtn" onclick="loadData()">
+          <span class="ri" style="display:inline-block">🔄</span>
+          <span>Actualizar</span>
+        </button>
+        <span class="last-update" id="lastUpdate"></span>
+      </div>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card"><span class="stat-icon">👥</span><div class="stat-num" id="st-total">—</div><div class="stat-label">Total invitados</div></div>
+        <div class="stat-card green"><span class="stat-icon">✅</span><div class="stat-num" id="st-confirmed">—</div><div class="stat-label">Confirmados</div></div>
+        <div class="stat-card"><span class="stat-icon">⏳</span><div class="stat-num" id="st-pending">—</div><div class="stat-label">Pendientes</div></div>
+        <div class="stat-card"><span class="stat-icon">❌</span><div class="stat-num" id="st-cancelled">—</div><div class="stat-label">Cancelados</div></div>
+        <div class="stat-card gold"><span class="stat-icon">🥂</span><div class="stat-num" id="st-pax">—</div><div class="stat-label">Personas totales</div></div>
+        <div class="stat-card blue"><span class="stat-icon">🥗</span><div class="stat-num" id="st-allergies">—</div><div class="stat-label">Con alergias</div></div>
+      </div>
+
+      <!-- Mini tabla pendientes -->
+      <div class="section-card">
+        <div class="section-card-header">
+          <span class="section-card-title">⏳ Pendientes de confirmar</span>
+          <span class="section-card-count" id="pendingCount"></span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Código</th><th>Nombre</th><th>Max asientos</th><th>Acción</th></tr></thead>
+            <tbody id="pendingTable"><tr><td colspan="4" class="empty">Cargando...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVITADOS -->
+    <div class="view" id="view-guests">
+      <div class="page-header">
+        <h1 class="page-title">Lista de Invitados</h1>
+        <p class="page-sub">Gestiona quién está en la lista</p>
+      </div>
+      <div class="section-card">
+        <div class="section-card-header">
+          <span class="section-card-title">👥 Todos los invitados</span>
+          <button class="btn btn-primary" onclick="toggleAddForm()">+ Añadir invitado</button>
+        </div>
+        <!-- ADD FORM -->
+        <div class="add-form" id="addForm">
+          <div class="form-grid">
+            <div class="form-field"><label>Código</label><input class="form-input" id="f-code" placeholder="MARIA2" style="text-transform:uppercase"></div>
+            <div class="form-field"><label>Nombre completo</label><input class="form-input" id="f-name" placeholder="María García"></div>
+            <div class="form-field"><label>Max asientos</label><input class="form-input" id="f-seats" type="number" min="1" max="20" placeholder="2"></div>
+            <div class="form-field"><label>Teléfono (+34...)</label><input class="form-input" id="f-phone" placeholder="+34600000000"></div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" onclick="addGuest()">✅ Guardar invitado</button>
+            <button class="btn btn-cancel-modal" onclick="toggleAddForm()">Cancelar</button>
+          </div>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Código</th><th>Nombre</th><th>Asientos</th><th>Teléfono</th><th>Estado RSVP</th><th>Confirmados</th><th>Acciones</th></tr></thead>
+            <tbody id="guestsTable"><tr><td colspan="7" class="empty">Cargando...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIRMADOS -->
+    <div class="view" id="view-confirmed">
+      <div class="page-header">
+        <h1 class="page-title">Confirmados</h1>
+        <p class="page-sub">Invitados que han confirmado asistencia</p>
+      </div>
+      <div class="section-card">
+        <div class="section-card-header">
+          <span class="section-card-title">✅ Asistirán</span>
+          <span class="section-card-count" id="confirmedCount"></span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Código</th><th>Nombre</th><th>Personas</th><th>Alergias</th><th>Confirmado el</th></tr></thead>
+            <tbody id="confirmedTable"><tr><td colspan="5" class="empty">Cargando...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANCELADOS -->
+    <div class="view" id="view-cancelled">
+      <div class="page-header">
+        <h1 class="page-title">Cancelados</h1>
+        <p class="page-sub">No asistirán o han cancelado</p>
+      </div>
+      <div class="section-card">
+        <div class="section-card-header">
+          <span class="section-card-title">❌ No asistirán</span>
+          <span class="section-card-count" id="cancelledCount"></span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Código</th><th>Nombre</th><th>Motivo</th><th>Fecha</th></tr></thead>
+            <tbody id="cancelledTable"><tr><td colspan="4" class="empty">Cargando...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALERGIAS -->
+    <div class="view" id="view-allergies">
+      <div class="page-header">
+        <h1 class="page-title">Alergias & Dietas</h1>
+        <p class="page-sub">Invitados con necesidades alimentarias especiales</p>
+      </div>
+      <div class="section-card">
+        <div class="section-card-header">
+          <span class="section-card-title">🥗 Restricciones alimentarias</span>
+          <span class="section-card-count" id="allergiesCount"></span>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Nombre</th><th>Personas</th><th>Restricción</th></tr></thead>
+            <tbody id="allergiesTable"><tr><td colspan="3" class="empty">Cargando...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL EDITAR -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h2 class="modal-title">Editar invitado</h2>
+    <div class="form-grid">
+      <div class="form-field"><label>Código</label><input class="form-input" id="e-code" style="text-transform:uppercase"></div>
+      <div class="form-field"><label>Nombre completo</label><input class="form-input" id="e-name"></div>
+      <div class="form-field"><label>Max asientos</label><input class="form-input" id="e-seats" type="number" min="1" max="20"></div>
+      <div class="form-field"><label>Teléfono (+34...)</label><input class="form-input" id="e-phone"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel-modal" onclick="closeModal('editModal')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveEdit()">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMMw48PHFg3--Eo4jbEbz1sSkoZP4I_zUk18bFyKk8_OpuKgsqw2-Rsiu8kpaoSm0H/exec';
+const BASE_URL   = 'https://ignacio0828.github.io/boda-ana-jorge';
+
+let adminUser = '';
+let adminPass = '';
+let cachedData = null;
+let editingCode = '';
+
+// ── LOGIN ──
+document.getElementById('loginPass').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
+document.getElementById('loginUser').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
+
+async function doLogin(){
+  const user = document.getElementById('loginUser').value.trim();
+  const pass = document.getElementById('loginPass').value.trim();
+  if(!user||!pass) return;
+  showLoading(true);
+  try {
+    const r = await api({ action:'adminLogin', user, pass });
+    if(r.auth){
+      adminUser = user; adminPass = pass;
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('adminScreen').classList.add('show');
+      showLoading(false);
+      loadData();
+    } else {
+      showLoading(false);
+      document.getElementById('loginError').classList.add('show');
+      setTimeout(()=>document.getElementById('loginError').classList.remove('show'),3000);
+    }
+  } catch(e){ showLoading(false); alert('Error de conexión'); }
+}
+
+function doLogout(){
+  adminUser=''; adminPass=''; cachedData=null;
+  document.getElementById('adminScreen').classList.remove('show');
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('loginPass').value='';
+}
+
+// ── LOAD DATA ──
+async function loadData(){
+  const btn = document.getElementById('refreshBtn');
+  btn.classList.add('spinning');
+  try {
+    const r = await api({ action:'adminGetAll', user:adminUser, pass:adminPass });
+    if(!r.ok){ alert('Error: '+r.error); return; }
+    cachedData = r;
+    renderAll(r);
+    document.getElementById('lastUpdate').textContent = 'Actualizado: ' + new Date().toLocaleTimeString('es-ES');
+  } catch(e){ alert('Error de conexión'); }
+  btn.classList.remove('spinning');
+}
+
+function renderAll(d){
+  // Stats
+  document.getElementById('st-total').textContent     = d.stats.totalGuests;
+  document.getElementById('st-confirmed').textContent = d.stats.confirmed;
+  document.getElementById('st-pending').textContent   = d.stats.pending;
+  document.getElementById('st-cancelled').textContent = d.stats.cancelled;
+  document.getElementById('st-pax').textContent       = d.stats.totalPax;
+  document.getElementById('st-allergies').textContent = d.stats.allergies;
+
+  // Pending table
+  const pending = d.guests.filter(g => g.rsvpStatus === 'Pendiente');
+  document.getElementById('pendingCount').textContent = `${pending.length} pendientes`;
+  document.getElementById('pendingTable').innerHTML = pending.length ? pending.map(g=>`
+    <tr>
+      <td>${g.code}</td>
+      <td>${g.name}</td>
+      <td style="text-align:center">${g.maxSeats}</td>
+      <td><div class="btn-row">
+        ${g.phone ? `<button class="btn btn-wa" onclick="sendWA('${g.phone}','${g.code}','${escHtml(g.name)}')">💬 WhatsApp</button>` : '<span style="font-size:12px;color:#ccc">Sin teléfono</span>'}
+      </div></td>
+    </tr>`).join('') : '<tr><td colspan="4" class="empty">🎉 ¡Todos han respondido!</td></tr>';
+
+  // Guests table
+  document.getElementById('guestsTable').innerHTML = d.guests.map(g=>{
+    const badge = g.rsvpStatus==='Confirmado' ? '<span class="badge badge-green">✅ Confirmado</span>'
+                : g.rsvpStatus==='No asiste'  ? '<span class="badge badge-red">❌ No asiste</span>'
+                : g.rsvpStatus==='Cancelado'  ? '<span class="badge badge-yellow">🗑 Cancelado</span>'
+                : '<span class="badge badge-grey">⏳ Pendiente</span>';
+    return `<tr>
+      <td>${g.code}</td>
+      <td>${escHtml(g.name)}</td>
+      <td style="text-align:center">${g.maxSeats}</td>
+      <td style="font-size:12px">${g.phone||'<span style="color:#ccc">—</span>'}</td>
+      <td>${badge}</td>
+      <td style="text-align:center">${g.rsvpSeats!=null ? g.rsvpSeats : '—'}</td>
+      <td><div class="btn-row">
+        <button class="btn btn-edit" onclick="openEdit('${g.code}')">✏️ Editar</button>
+        <button class="btn btn-delete" onclick="deleteGuest('${g.code}','${escHtml(g.name)}')">🗑</button>
+        ${g.phone ? `<button class="btn btn-wa" onclick="sendWA('${g.phone}','${g.code}','${escHtml(g.name)}')">💬</button>` : ''}
+      </div></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="7" class="empty">No hay invitados</td></tr>';
+
+  // Confirmed
+  const conf = d.rsvp.filter(r=>r.status==='Confirmado');
+  document.getElementById('confirmedCount').textContent = `${conf.length} · ${conf.reduce((s,r)=>s+(parseInt(r.seats)||0),0)} personas`;
+  document.getElementById('confirmedTable').innerHTML = conf.map(r=>`
+    <tr>
+      <td>${r.code}</td>
+      <td>${escHtml(r.name)}</td>
+      <td style="text-align:center"><strong>${r.seats}</strong></td>
+      <td>${r.allergy && r.allergy!=='—' ? `<span class="badge badge-yellow">${escHtml(r.allergy)}</span>` : '<span style="color:#ccc;font-size:12px">Ninguna</span>'}</td>
+      <td style="font-size:12px;color:#999">${r.date||'—'}</td>
+    </tr>`).join('') || '<tr><td colspan="5" class="empty">Nadie ha confirmado aún</td></tr>';
+  document.getElementById('confirmedCount').textContent = `${conf.length} personas`;
+
+  // Cancelled
+  const canc = d.rsvp.filter(r=>r.status==='Cancelado'||r.status==='No asiste');
+  document.getElementById('cancelledCount').textContent = `${canc.length}`;
+  document.getElementById('cancelledTable').innerHTML = canc.map(r=>`
+    <tr>
+      <td>${r.code}</td>
+      <td>${escHtml(r.name)}</td>
+      <td>${r.status==='Cancelado'?'<span class="badge badge-yellow">Canceló tras confirmar</span>':'<span class="badge badge-red">No puede asistir</span>'}</td>
+      <td style="font-size:12px;color:#999">${r.date||'—'}</td>
+    </tr>`).join('') || '<tr><td colspan="4" class="empty">Nadie ha cancelado</td></tr>';
+
+  // Allergies
+  const allerg = d.rsvp.filter(r=>r.allergy && r.allergy!=='—' && r.status==='Confirmado');
+  document.getElementById('allergiesCount').textContent = `${allerg.length} invitados`;
+  document.getElementById('allergiesTable').innerHTML = allerg.map(r=>`
+    <tr>
+      <td>${escHtml(r.name)}</td>
+      <td style="text-align:center">${r.seats}</td>
+      <td><span class="badge badge-yellow">🥗 ${escHtml(r.allergy)}</span></td>
+    </tr>`).join('') || '<tr><td colspan="3" class="empty">Sin restricciones alimentarias</td></tr>';
+}
+
+// ── ADD GUEST ──
+function toggleAddForm(){
+  document.getElementById('addForm').classList.toggle('show');
+}
+
+async function addGuest(){
+  const code  = document.getElementById('f-code').value.trim().toUpperCase();
+  const name  = document.getElementById('f-name').value.trim();
+  const seats = document.getElementById('f-seats').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  if(!code||!name||!seats){ alert('Rellena código, nombre y asientos'); return; }
+  showLoading(true);
+  const r = await api({ action:'adminAddGuest', user:adminUser, pass:adminPass, code, name, maxSeats:seats, phone });
+  showLoading(false);
+  if(r.ok){
+    document.getElementById('f-code').value='';
+    document.getElementById('f-name').value='';
+    document.getElementById('f-seats').value='';
+    document.getElementById('f-phone').value='';
+    document.getElementById('addForm').classList.remove('show');
+    await loadData();
+  } else { alert('Error: '+(r.error||'No se pudo añadir')); }
+}
+
+// ── EDIT ──
+function openEdit(code){
+  const g = cachedData.guests.find(g=>g.code===code);
+  if(!g) return;
+  editingCode = code;
+  document.getElementById('e-code').value  = g.code;
+  document.getElementById('e-name').value  = g.name;
+  document.getElementById('e-seats').value = g.maxSeats;
+  document.getElementById('e-phone').value = g.phone||'';
+  document.getElementById('editModal').classList.add('show');
+}
+
+async function saveEdit(){
+  const newCode = document.getElementById('e-code').value.trim().toUpperCase();
+  const name    = document.getElementById('e-name').value.trim();
+  const seats   = document.getElementById('e-seats').value.trim();
+  const phone   = document.getElementById('e-phone').value.trim();
+  if(!newCode||!name||!seats){ alert('Rellena todos los campos'); return; }
+  showLoading(true);
+  closeModal('editModal');
+  const r = await api({ action:'adminUpdateGuest', user:adminUser, pass:adminPass, code:editingCode, newCode, name, maxSeats:seats, phone });
+  showLoading(false);
+  if(r.ok){ await loadData(); }
+  else { alert('Error: '+(r.error||'No se pudo actualizar')); }
+}
+
+// ── DELETE ──
+async function deleteGuest(code, name){
+  if(!confirm(`¿Eliminar a ${name} de la lista de invitados?\n\nSu código dejará de funcionar.`)) return;
+  showLoading(true);
+  const r = await api({ action:'adminDeleteGuest', user:adminUser, pass:adminPass, code });
+  showLoading(false);
+  if(r.ok){ await loadData(); }
+  else { alert('Error: '+(r.error||'No se pudo eliminar')); }
+}
+
+// ── WHATSAPP ──
+function sendWA(phone, code, name){
+  const clean = phone.replace(/\s/g,'').replace('+','');
+  const link  = `${BASE_URL}?codigo=${code}`;
+  const msg   = `Hola ${name}! 🌸\n\nTe enviamos tu invitación personal a la boda de Ana y Jorge:\n\n👉 ${link}\n\nCon mucho cariño,\nAna & Jorge 💛`;
+  window.open(`https://wa.me/${clean}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ── NAV ──
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  document.getElementById('nav-'+id).classList.add('active');
+  if(window.innerWidth<=768) document.getElementById('sidebar').classList.remove('open');
+}
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ── MODAL ──
+function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+
+// ── API ──
+async function api(params){
+  const url = SCRIPT_URL + '?' + new URLSearchParams(params).toString();
+  const r   = await fetch(url);
+  return r.json();
+}
+
+// ── HELPERS ──
+function showLoading(v){ document.getElementById('loadingOverlay').classList.toggle('show',v); }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+// Auto-refresh every 60 seconds
+setInterval(()=>{ if(adminUser) loadData(); }, 60000);
+</script>
+</body>
+</html>
