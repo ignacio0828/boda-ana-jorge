@@ -737,45 +737,57 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-// MÚSICA — YouTube iframe API (funciona en móvil)
-let ytPlayer = null;
-let ytReady  = false;
-let ytPlaying = false;
+// MÚSICA — HTML5 Audio con fallback
+const MUSIC_SOURCES = [
+  'https://ia800605.us.archive.org/7/items/ChristinaPerriAThousandYears/Christina%20Perri%20-%20A%20Thousand%20Years.mp3',
+  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+];
+let audio = null;
+let playing = false;
+let srcIndex = 0;
 
-function onYouTubeIframeAPIReady(){
-  ytPlayer = new YT.Player('ytPlayer', {
-    height:'0', width:'0',
-    videoId: 'xmasGiqdA34', // Christina Perri - A Thousand Years (audio oficial)
-    playerVars:{ autoplay:0, controls:0, loop:1, playlist:'xmasGiqdA34' },
-    events:{
-      onReady: ()=>{ ytReady=true; },
-      onStateChange: e => {
-        ytPlaying = e.data === YT.PlayerState.PLAYING;
-        document.getElementById('musicBtn').textContent = ytPlaying ? '⏸' : '▶';
-      }
-    }
-  });
+function initAudio(){
+  if(audio) return;
+  audio = new Audio();
+  audio.loop = true;
+  audio.volume = 0.35;
+  audio.preload = 'none';
+  audio.src = MUSIC_SOURCES[srcIndex];
+  audio.onerror = () => {
+    srcIndex = (srcIndex + 1) % MUSIC_SOURCES.length;
+    audio.src = MUSIC_SOURCES[srcIndex];
+    if(playing) audio.play().catch(()=>{});
+  };
+  audio.onplay  = () => { playing = true;  document.getElementById('musicBtn').textContent = '⏸'; };
+  audio.onpause = () => { playing = false; document.getElementById('musicBtn').textContent = '▶'; };
 }
 
 function toggleMusic(){
-  if(!ytReady){ return; }
-  if(ytPlaying){ ytPlayer.pauseVideo(); }
-  else { ytPlayer.playVideo(); }
+  initAudio();
+  if(playing){
+    audio.pause();
+  } else {
+    audio.play().catch(e => {
+      console.log('Autoplay bloqueado, esperando interacción del usuario');
+    });
+  }
 }
 
-// Cargar YouTube API
-const tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-document.head.appendChild(tag);
-
-// Primer toque en móvil
+// En móvil, activar con primer toque
 document.addEventListener('touchstart', function f(){
-  if(ytReady && !ytPlaying) ytPlayer.playVideo();
-  document.removeEventListener('touchstart',f);
-},{once:true});
+  initAudio();
+  audio.play().catch(()=>{});
+  document.removeEventListener('touchstart', f);
+}, {once: true, passive: true});
+
+// En escritorio, activar con primer click en cualquier lugar
+document.addEventListener('click', function f(){
+  initAudio();
+  if(!playing) audio.play().catch(()=>{});
+  document.removeEventListener('click', f);
+}, {once: true});
 </script>
 
-<!-- YouTube player invisible -->
-<div id="ytPlayer" style="position:fixed;bottom:-100px;left:-100px;width:1px;height:1px;opacity:0;pointer-events:none"></div>
 </body>
+</html>
 </html>
