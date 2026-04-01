@@ -526,7 +526,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 </div>
 
 <script>
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwreTnVVQx_BRi-4vdltXHq5Fa0KVTy9nm-l-jnKSAjO8d9gi_kUajG1AeWF65Gymip/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMMw48PHFg3--Eo4jbEbz1sSkoZP4I_zUk18bFyKk8_OpuKgsqw2-Rsiu8kpaoSm0H/exec';
 const WEDDING = {
   title:    'Boda de Ana & Jorge 🌸',
   start:    '20260912T110000Z',
@@ -540,11 +540,8 @@ let selectedSeats  = 0;
 let selectedAttend = null;
 let updateSeats    = 0;
 
-// Auto-fill desde ?codigo=
-(function(){
-  const c = new URLSearchParams(window.location.search).get('codigo');
-  if(c){ document.getElementById('codeInput').value = c; setTimeout(checkCode, 500); }
-})();
+// Detectar código de URL en segundo plano (sin redirigir)
+const _autoCode = new URLSearchParams(window.location.search).get('codigo');
 
 document.getElementById('codeInput').addEventListener('keydown', e => { if(e.key==='Enter') checkCode(); });
 
@@ -723,6 +720,11 @@ function showPage(id,dot){
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===dot));
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Si viene con ?codigo= → pre-rellenar el campo cuando llegue a RSVP
+if(_autoCode){
+  document.getElementById('codeInput').value = _autoCode;
 }
 
 function tick(){
