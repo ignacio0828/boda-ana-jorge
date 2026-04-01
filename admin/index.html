@@ -218,6 +218,83 @@ tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1p
   .mobile-toggle{display:flex}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ── GUIDE STYLES ── */
+.guide-wrap{padding:0 0 20px;font-family:Lato,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#fdf8f2;--blush:#e8c5b0;--rose:#c97c6e;--deep-rose:#8b4a42;--gold:#c9a96e;--dark:#3a2820;--green:#7a8c6a}
+.view-guide .guide-wrap{background:var(--cream);font-family:'Lato',sans-serif;color:var(--dark);max-width:780px;margin:0 auto;padding:40px 24px 80px;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.guide-wrap .doc-header{text-align:center;padding:40px 20px 32px;position:relative;border-bottom:1px solid rgba(201,169,110,.25);margin-bottom:40px}
+.guide-wrap .doc-pretitle{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.guide-wrap .doc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:42px;color:var(--deep-rose);line-height:1.1;margin-bottom:10px}
+.guide-wrap .doc-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--rose);line-height:1.7}
+.guide-wrap .doc-date{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:#bbb;text-transform:uppercase;margin-top:14px}
+
+/* SECTION */
+.guide-wrap .section{margin-bottom:48px}
+.guide-wrap .section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(201,169,110,.2)}
+.guide-wrap .section-num{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;flex-shrink:0}
+.guide-wrap .section-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--deep-rose)}
+
+/* CARDS */
+.guide-wrap .card{background:rgba(255,255,255,.75);border:1px solid rgba(201,169,110,.22);border-radius:16px;padding:22px 24px;margin-bottom:16px;box-shadow:0 4px 20px rgba(139,74,66,.06)}
+.guide-wrap .card-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.guide-wrap .card p{font-size:14px;line-height:1.8;color:#555;margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+
+/* TABLE */
+.guide-wrap .tbl-wrap{overflow-x:auto;margin-bottom:16px}
+.guide-wrap table{width:100%;border-collapse:collapse;font-size:13px}
+.guide-wrap thead tr{background:var(--deep-rose)}
+.guide-wrap thead th{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:white;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:500}
+.guide-wrap tbody tr:nth-child(even){background:rgba(253,248,242,.8)}
+.guide-wrap tbody tr:nth-child(odd){background:rgba(255,255,255,.9)}
+.guide-wrap tbody td{padding:11px 14px;color:#555;font-size:13px;line-height:1.6;border-bottom:1px solid rgba(201,169,110,.12)}
+.guide-wrap tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:var(--deep-rose);font-weight:500}
+.guide-wrap .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-family:'Cinzel',serif;letter-spacing:1px}
+.guide-wrap .badge-green{background:rgba(74,139,90,.12);color:#4a8b5a;border:1px solid rgba(74,139,90,.2)}
+.guide-wrap .badge-red{background:rgba(139,74,66,.1);color:var(--deep-rose);border:1px solid rgba(139,74,66,.2)}
+.guide-wrap .badge-yellow{background:rgba(201,169,110,.15);color:#8a6a00;border:1px solid rgba(201,169,110,.3)}
+.guide-wrap .badge-blue{background:rgba(26,86,219,.08);color:#1a56db;border:1px solid rgba(26,86,219,.15)}
+
+/* STEPS */
+.guide-wrap .steps{counter-reset:step}
+.guide-wrap .step{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+.guide-wrap .step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--deep-rose),var(--rose));color:white;font-family:'Cinzel',serif;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:500}
+.guide-wrap .step-content{flex:1;padding-top:4px}
+.guide-wrap .step-content strong{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--deep-rose);text-transform:uppercase;display:block;margin-bottom:4px}
+.guide-wrap .step-content p{font-size:13px;color:#666;line-height:1.7}
+
+/* CODE */
+.guide-wrap code{background:rgba(139,74,66,.08);color:var(--deep-rose);padding:2px 8px;border-radius:6px;font-family:'Courier New',monospace;font-size:12px}
+.guide-wrap .code-block{background:#3a2820;border-radius:12px;padding:16px 20px;margin:12px 0;overflow-x:auto}
+.code-block .guide-wrap code{background:none;color:#e8c5b0;padding:0;font-size:13px;line-height:1.7;display:block}
+.code-block .cm{color:#7a8c6a}.code-block .ky{color:#c9a96e}.code-block .st{color:#c97c6e}
+
+/* ALERT */
+.guide-wrap .alert{border-radius:12px;padding:14px 18px;margin-bottom:14px;display:flex;gap:12px;align-items:flex-start}
+.guide-wrap .alert-info{background:rgba(26,86,219,.06);border:1px solid rgba(26,86,219,.15)}
+.guide-wrap .alert-warn{background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.3)}
+.guide-wrap .alert-ok{background:rgba(74,139,90,.08);border:1px solid rgba(74,139,90,.2)}
+.guide-wrap .alert-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.guide-wrap .alert-text{font-size:13px;color:#555;line-height:1.7}
+.alert-text strong{color:var(--dark)}
+
+/* DIVIDER */
+.guide-wrap .divider{display:flex;align-items:center;gap:14px;margin:32px 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--blush),transparent)}
+.divider span{color:var(--gold);font-size:14px}
+
+/* FORMULA */
+.guide-wrap .formula{background:rgba(253,248,242,.9);border:1px solid rgba(201,169,110,.3);border-radius:10px;padding:12px 16px;font-family:'Courier New',monospace;font-size:12px;color:var(--dark);margin:10px 0;line-height:1.6}
+
+/* FOOTER */
+.guide-wrap .guide-wrap .doc-footer{text-align:center;padding:32px 20px 10px;border-top:1px solid rgba(201,169,110,.2);margin-top:48px}
+.guide-wrap .doc-footer p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--blush)}
+.guide-wrap .section{margin-bottom:36px}
+.guide-wrap .card{margin-bottom:14px}
 </style>
 </head>
 <body>
@@ -260,7 +337,10 @@ tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1p
       <div class="sidebar-sub">12 Septiembre 2026</div>
     </div>
     <nav class="sidebar-nav">
-      <button class="nav-item active" onclick="showView('dashboard')" id="nav-dashboard">
+      <button class="nav-item active" onclick="showView('guide')" id="nav-guide">
+        <span class="nav-item-icon">📖</span><span class="nav-item-label">Guía</span>
+      </button>
+      <button class="nav-item" onclick="showView('dashboard')" id="nav-dashboard">
         <span class="nav-item-icon">📊</span><span class="nav-item-label">Dashboard</span>
       </button>
       <button class="nav-item" onclick="showView('guests')" id="nav-guests">
@@ -284,8 +364,388 @@ tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1p
   <!-- MAIN -->
   <div class="main">
 
+
+    <!-- GUÍA -->
+    <div class="view active" id="view-guide">
+      <div style="max-width:760px">
+        <div class="guide-wrap">
+          <!-- HEADER -->
+<div class="doc-header">
+  <p class="doc-pretitle">✦ Guía de gestión ✦</p>
+  <h1 class="doc-title">Boda Ana & Jorge</h1>
+  <p class="doc-subtitle">Todo lo que necesitas saber para gestionar<br>la invitación, los invitados y las confirmaciones</p>
+  <p class="doc-date">12 de Septiembre · 2026 · Villanueva del Pardillo, Madrid</p>
+</div>
+
+<!-- SECCIÓN 1: VISIÓN GENERAL -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Visión general del sistema</h2>
+  </div>
+
+  <div class="card">
+    <p>La invitación funciona con <strong>tres elementos conectados</strong> entre sí:</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Elemento</th><th>Qué es</th><th>Para qué sirve</th></tr></thead>
+      <tbody>
+        <tr><td>GitHub Pages</td><td>Página web online</td><td>Donde los invitados abren la invitación</td></tr>
+        <tr><td>Hoja INVITADOS</td><td>Tu lista de control</td><td>Aquí añades, editas o quitas invitados</td></tr>
+        <tr><td>Hoja RSVP</td><td>Base de datos automática</td><td>Se rellena sola con cada confirmación</td></tr>
+        <tr><td>Apps Script</td><td>El puente entre ambos</td><td>Conecta la invitación con Google Sheets</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert alert-ok">
+    <span class="alert-icon">✅</span>
+    <p class="alert-text"><strong>Lo único que debes gestionar tú:</strong> la hoja INVITADOS. Todo lo demás funciona automáticamente.</p>
+  </div>
+</div>
+
+<div class="divider"><span>🌸</span></div>
+
+<!-- SECCIÓN 2: HOJA INVITADOS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Hoja INVITADOS — Tu panel de control</h2>
+  </div>
+
+  <div class="card">
+    <p>Esta es la hoja que tú gestionas. Cada fila es un invitado o grupo de invitados. Tiene <strong>4 columnas</strong>:</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Columna</th><th>Qué poner</th><th>Ejemplo</th><th>Normas</th></tr></thead>
+      <tbody>
+        <tr><td>A — Código</td><td>Identificador único del invitado</td><td>MARIA2</td><td>Sin espacios, sin tildes, todo mayúsculas</td></tr>
+        <tr><td>B — Nombre</td><td>Nombre completo o grupo</td><td>María García</td><td>Como quieras que aparezca en la invitación</td></tr>
+        <tr><td>C — MaxAsientos</td><td>Cuántas personas puede traer</td><td>2</td><td>Solo el número, mínimo 1</td></tr>
+        <tr><td>D — Link</td><td>URL personalizada automática</td><td>=CONCATENAR("https://..."&A2)</td><td>Fórmula automática, no tocar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📋 Fórmula de la columna D (Link)</p>
+    <p>En la celda D2 pon esta fórmula y arrástrala hacia abajo para todos los invitados:</p>
+    <div class="formula">="https://ignacio0828.github.io/boda-ana-jorge?codigo="&A2</div>
+    <p>Esto genera automáticamente el link único de cada invitado basándose en su código.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title">💡 Cómo crear el código</p>
+    <p>El código debe ser único para cada invitado. Te recomendamos usar el <strong>nombre + número de asientos</strong>:</p>
+    <div class="tbl-wrap" style="margin:10px 0 0">
+      <table>
+        <thead><tr><th>Invitado</th><th>Asientos</th><th>Código sugerido</th></tr></thead>
+        <tbody>
+          <tr><td>María García</td><td>2</td><td><code>MARIA2</code></td></tr>
+          <tr><td>Carlos López</td><td>1</td><td><code>CARLOS1</code></td></tr>
+          <tr><td>Familia Rodríguez</td><td>4</td><td><code>FAMILIA4</code></td></tr>
+          <tr><td>Laura y Marcos</td><td>2</td><td><code>LAURA2</code></td></tr>
+          <tr><td>Grupo de amigos</td><td>3</td><td><code>AMIGOS3</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <p class="alert-text"><strong>Importante:</strong> El código no puede tener espacios, tildes ni caracteres especiales. Solo letras mayúsculas y números. Ejemplos válidos: <code>PEDRO1</code>, <code>ANA2</code>, <code>FAMILIA4</code>.</p>
+  </div>
+</div>
+
+<div class="divider"><span>🌿</span></div>
+
+<!-- SECCIÓN 3: ENVIAR INVITACIONES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Cómo enviar la invitación a cada persona</h2>
+  </div>
+
+  <div class="card">
+    <p>Cada invitado recibe su <strong>link único personalizado</strong> por WhatsApp. Al abrirlo, su nombre e información ya están cargados automáticamente.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📲 Mensaje de WhatsApp recomendado</p>
+    <div class="code-block">
+      <code>Hola María! 🌸
+
+Te enviamos la invitación a nuestra boda.
+Aquí tienes tu acceso personal:
+
+👉 https://ignacio0828.github.io/boda-ana-jorge?codigo=MARIA2
+
+Con mucho cariño,
+Ana & Jorge 💛</code>
+    </div>
+    <p style="margin-top:8px">Simplemente copia el link de la columna D de la hoja INVITADOS y pégalo en el mensaje.</p>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <p class="alert-text"><strong>Al abrir el link:</strong> La invitación se abre en la página de inicio. Cuando el invitado vaya a la sección RSVP, su código ya estará listo — solo tiene que pulsar la flecha y confirmar.</p>
+  </div>
+</div>
+
+<div class="divider"><span>🌸</span></div>
+
+<!-- SECCIÓN 4: HOJA RSVP -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Hoja RSVP — Confirmaciones automáticas</h2>
+  </div>
+
+  <div class="card">
+    <p>Esta hoja <strong>se rellena automáticamente</strong> cada vez que alguien confirma, modifica o cancela su asistencia. No debes editar nada aquí manualmente.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Columna</th><th>Qué contiene</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>A — Código</td><td>Código del invitado</td><td>MARIA2</td></tr>
+        <tr><td>B — Nombre</td><td>Nombre completo</td><td>María García</td></tr>
+        <tr><td>C — Asistencia</td><td>Estado de la confirmación</td><td>✅ Confirmado</td></tr>
+        <tr><td>D — Personas</td><td>Número de asistentes confirmados</td><td>2</td></tr>
+        <tr><td>E — Alergias</td><td>Restricciones alimentarias</td><td>Sin gluten</td></tr>
+        <tr><td>F — Fecha</td><td>Cuándo se registró o actualizó</td><td>15/06/2026 18:32</td></tr>
+        <tr><td>G — Estado</td><td>Estado actual del registro</td><td>Confirmado</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p class="card-title">🎨 Colores de las filas</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:16px;height:16px;border-radius:4px;background:#e8f5e9;border:1px solid #c8e6c9;flex-shrink:0"></div>
+        <span style="font-size:13px;color:#555"><span class="badge badge-green">Verde</span> &nbsp;→ Asistencia confirmada</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:16px;height:16px;border-radius:4px;background:#ffebee;border:1px solid #ffcdd2;flex-shrink:0"></div>
+        <span style="font-size:13px;color:#555"><span class="badge badge-red">Rojo</span> &nbsp;→ No puede asistir</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:16px;height:16px;border-radius:4px;background:#fff9c4;border:1px solid #f9e24b;flex-shrink:0"></div>
+        <span style="font-size:13px;color:#555"><span class="badge badge-yellow">Amarillo</span> &nbsp;→ Cancelado tras haber confirmado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📊 Ver el resumen rápido</p>
+    <p>Para ver cuántas personas han confirmado en total, añade esta fórmula en una celda vacía:</p>
+    <div class="formula">=COUNTIF(G:G,"Confirmado")  → número de confirmaciones
+=SUMIF(G:G,"Confirmado",D:D)  → total de personas asistentes</div>
+  </div>
+</div>
+
+<div class="divider"><span>🌿</span></div>
+
+<!-- SECCIÓN 5: GESTIÓN DE REGISTROS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Añadir, modificar y eliminar invitados</h2>
+  </div>
+
+  <!-- AÑADIR -->
+  <div class="card">
+    <p class="card-title">➕ Añadir un invitado nuevo</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Abre la hoja INVITADOS</strong><p>Ve a Google Sheets → abre el archivo RSVP Ana & Jorge → pestaña INVITADOS</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Añade una fila nueva</strong><p>En la siguiente fila vacía escribe: código, nombre y número máximo de asientos</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Arrastra la fórmula del link</strong><p>Haz clic en la celda D de la fila anterior → arrastra la esquinita hasta la nueva fila</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Envía el link</strong><p>Copia el link de la columna D y envíalo por WhatsApp</p></div>
+    </div>
+  </div>
+
+  <!-- MODIFICAR -->
+  <div class="card">
+    <p class="card-title">✏️ Modificar el número de asientos de un invitado</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Busca al invitado en INVITADOS</strong><p>Localiza su fila por nombre o código</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Cambia el número en la columna C</strong><p>Edita directamente el número de MaxAsientos</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>Listo</strong><p>El invitado verá el nuevo límite la próxima vez que abra su link</p></div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:8px">
+      <span class="alert-icon">⚠️</span>
+      <p class="alert-text">Si ya confirmó con 3 personas y reduces el máximo a 2, verá su confirmación actual pero no podrá aumentarla más allá del nuevo límite.</p>
+    </div>
+  </div>
+
+  <!-- ELIMINAR -->
+  <div class="card">
+    <p class="card-title">🗑 Eliminar un invitado completamente</p>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>Elimina su fila en INVITADOS</strong><p>Clic derecho sobre la fila → Eliminar fila. A partir de ese momento su código no funcionará.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>Opcional: elimina su fila en RSVP</strong><p>Si ya había confirmado, puedes borrar también su registro de la hoja RSVP</p></div>
+    </div>
+    <div class="alert alert-info" style="margin-top:8px">
+      <span class="alert-icon">ℹ️</span>
+      <p class="alert-text">Los propios invitados también pueden eliminarse desde la invitación usando la opción "Eliminarme de la lista" en la sección RSVP con su código.</p>
+    </div>
+  </div>
+
+  <!-- EL PROPIO INVITADO -->
+  <div class="card">
+    <p class="card-title">👤 Lo que puede hacer el propio invitado</p>
+    <p>Cuando un invitado abre su link y va a RSVP, el sistema detecta automáticamente si ya tiene una confirmación y le muestra opciones:</p>
+    <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+      <div class="alert alert-ok" style="margin:0">
+        <span class="alert-icon">✅</span>
+        <p class="alert-text"><strong>Si es nuevo:</strong> ve el formulario para confirmar asistencia, elegir personas e indicar alergias</p>
+      </div>
+      <div class="alert alert-info" style="margin:0">
+        <span class="alert-icon">⭐</span>
+        <p class="alert-text"><strong>Si ya está registrado:</strong> ve su estado actual y puede modificar el número de personas (dentro de su límite) o eliminarse de la lista</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><span>🌸</span></div>
+
+<!-- SECCIÓN 6: NOTIFICACIONES -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Notificaciones automáticas</h2>
+  </div>
+
+  <div class="card">
+    <p>Cada vez que un invitado confirma, modifica o cancela su asistencia, el sistema envía automáticamente un email a:</p>
+    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+      <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px">
+        <span style="font-size:18px">📧</span>
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Jorge</div>
+          <div style="font-size:13px;color:var(--dark)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dbb2bcb5bab8b2b4ebe3e9e39bbcb6bab2b7f5b8b4b6">[email&#160;protected]</a></div>
+        </div>
+      </div>
+      <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px">
+        <span style="font-size:18px">📧</span>
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Ana</div>
+          <div style="font-size:13px;color:var(--dark)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="55343b34383636616d153238343c397b363a38">[email&#160;protected]</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📨 Ejemplo de email que recibiréis</p>
+    <div class="code-block">
+      <code><span class="cm">Asunto:</span> 🌸 RSVP Boda Ana & Jorge — María García ha confirmado
+
+<span class="cm">Cuerpo:</span>
+Hola!
+
+María García ha confirmado su asistencia a la boda.
+Personas: 2
+Alergias: Sin gluten
+
+Revisa el Google Sheet para ver la lista completa.</code>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <p class="alert-text">Los emails se envían desde vuestra propia cuenta de Google (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88e1efe6e9ebe1e7b8b0bab0c8efe5e9e1e4a6ebe7e5">[email&#160;protected]</a>). Es completamente seguro y no hay costes adicionales.</p>
+  </div>
+</div>
+
+<div class="divider"><span>🌿</span></div>
+
+<!-- SECCIÓN 7: DATOS TÉCNICOS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Datos técnicos de referencia</h2>
+  </div>
+
+  <div class="card">
+    <p class="card-title">🔗 Links importantes</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+      <div style="background:rgba(253,248,242,.9);border:1px solid rgba(201,169,110,.2);border-radius:10px;padding:12px 16px">
+        <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Invitación online</div>
+        <code style="font-size:12px">https://ignacio0828.github.io/boda-ana-jorge</code>
+      </div>
+      <div style="background:rgba(253,248,242,.9);border:1px solid rgba(201,169,110,.2);border-radius:10px;padding:12px 16px">
+        <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Formato link por invitado</div>
+        <code style="font-size:12px">https://ignacio0828.github.io/boda-ana-jorge?codigo=CÓDIGO</code>
+      </div>
+      <div style="background:rgba(253,248,242,.9);border:1px solid rgba(201,169,110,.2);border-radius:10px;padding:12px 16px">
+        <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Repositorio GitHub</div>
+        <code style="font-size:12px">github.com/ignacio0828/boda-ana-jorge</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📅 Fechas clave</p>
+    <div class="tbl-wrap" style="margin:8px 0 0">
+      <table>
+        <thead><tr><th>Fecha</th><th>Evento</th></tr></thead>
+        <tbody>
+          <tr><td>1 de agosto 2026</td><td>Fecha límite de confirmación de asistencia</td></tr>
+          <tr><td>12 septiembre 2026</td><td>🌸 ¡La boda! · 13:00 h</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📍 Lugar</p>
+    <p><strong>Hugo Caro Espacio</strong><br>C/ Santa María de la Colina, Urb. Santa María, 11<br>28229 Villanueva del Pardillo, Madrid</p>
+  </div>
+
+  <div class="card">
+    <p class="card-title">📞 Contacto</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+      <div style="background:rgba(253,248,242,.9);border:1px solid rgba(201,169,110,.2);border-radius:10px;padding:10px 16px;text-align:center;flex:1;min-width:140px">
+        <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Jorge</div>
+        <div style="font-size:14px;color:var(--dark)">620 642 781</div>
+      </div>
+      <div style="background:rgba(253,248,242,.9);border:1px solid rgba(201,169,110,.2);border-radius:10px;padding:10px 16px;text-align:center;flex:1;min-width:140px">
+        <div style="font-family:'Cinzel',ser
+        </div>
+      </div>
+    </div>
+
     <!-- DASHBOARD -->
-    <div class="view active" id="view-dashboard">
+    <div class="view" id="view-dashboard">
       <div class="page-header">
         <h1 class="page-title">Dashboard</h1>
         <p class="page-sub">Resumen en tiempo real de la boda</p>
@@ -335,11 +795,24 @@ tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1p
         <!-- ADD FORM -->
         <div class="add-form" id="addForm">
           <div class="form-grid">
-            <div class="form-field"><label>Código</label><input class="form-input" id="f-code" placeholder="MARIA2" style="text-transform:uppercase"></div>
-            <div class="form-field"><label>Nombre completo</label><input class="form-input" id="f-name" placeholder="María García"></div>
-            <div class="form-field"><label>Max asientos</label><input class="form-input" id="f-seats" type="number" min="1" max="20" placeholder="2"></div>
-            <div class="form-field"><label>Teléfono (+34...)</label><input class="form-input" id="f-phone" placeholder="+34600000000"></div>
+            <div class="form-field">
+              <label>Nombre completo</label>
+              <input class="form-input" id="f-name" placeholder="María García" oninput="updateCodePreview()">
+            </div>
+            <div class="form-field">
+              <label>Max asientos</label>
+              <input class="form-input" id="f-seats" type="number" min="1" max="20" placeholder="2" oninput="updateCodePreview()">
+            </div>
+            <div class="form-field">
+              <label>Teléfono (+34 + 9 dígitos)</label>
+              <input class="form-input" id="f-phone" placeholder="+34600000000" maxlength="13">
+            </div>
+            <div class="form-field">
+              <label>Código generado</label>
+              <input class="form-input" id="f-code-preview" placeholder="Se genera automáticamente" readonly style="background:rgba(201,169,110,.08);color:var(--deep-rose);font-family:'Cinzel',serif;letter-spacing:2px;font-size:13px">
+            </div>
           </div>
+          <div id="addFormError" style="display:none;margin-bottom:12px;padding:10px 14px;background:rgba(139,74,66,.08);border:1px solid rgba(139,74,66,.2);border-radius:10px;font-size:13px;color:var(--deep-rose);font-style:italic"></div>
           <div class="form-actions">
             <button class="btn btn-primary" onclick="addGuest()">✅ Guardar invitado</button>
             <button class="btn btn-cancel-modal" onclick="toggleAddForm()">Cancelar</button>
@@ -431,6 +904,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1p
       <button class="btn-cancel-modal" onclick="closeModal('editModal')">Cancelar</button>
       <button class="btn btn-primary" onclick="saveEdit()">Guardar cambios</button>
     </div>
+    <div id="editFormError" style="display:none;margin-top:12px;padding:10px 14px;background:rgba(139,74,66,.08);border:1px solid rgba(139,74,66,.2);border-radius:10px;font-size:13px;color:var(--deep-rose);font-style:italic"></div>
   </div>
 </div>
 
@@ -569,26 +1043,76 @@ function renderAll(d){
 
 // ── ADD GUEST ──
 function toggleAddForm(){
-  document.getElementById('addForm').classList.toggle('show');
+  const form = document.getElementById('addForm');
+  const isOpen = form.classList.contains('show');
+  if(!isOpen){
+    // Clear all fields when opening
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-seats').value = '';
+    document.getElementById('f-phone').value = '';
+    document.getElementById('f-code-preview').value = '';
+    document.getElementById('addFormError').style.display = 'none';
+  }
+  form.classList.toggle('show');
+}
+
+function updateCodePreview(){
+  const name  = document.getElementById('f-name').value.trim();
+  const seats = document.getElementById('f-seats').value.trim();
+  if(name && seats){
+    // First word uppercase + seats number
+    const firstName = name.split(' ')[0].toUpperCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'') // remove accents
+      .replace(/[^A-Z]/g,''); // only letters
+    document.getElementById('f-code-preview').value = firstName + seats;
+  } else {
+    document.getElementById('f-code-preview').value = '';
+  }
+}
+
+function showFormError(msg){
+  const el = document.getElementById('addFormError');
+  el.textContent = '⚠️ ' + msg;
+  el.style.display = 'block';
+}
+
+function hideFormError(){
+  document.getElementById('addFormError').style.display = 'none';
 }
 
 async function addGuest(){
-  const code  = document.getElementById('f-code').value.trim().toUpperCase();
+  hideFormError();
   const name  = document.getElementById('f-name').value.trim();
   const seats = document.getElementById('f-seats').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
-  if(!code||!name||!seats){ alert('Rellena código, nombre y asientos'); return; }
+  const code  = document.getElementById('f-code-preview').value.trim();
+
+  // Validaciones
+  if(!name)  { showFormError('El nombre es obligatorio'); return; }
+  if(!seats) { showFormError('El número de asientos es obligatorio'); return; }
+  if(parseInt(seats) < 1 || parseInt(seats) > 20) { showFormError('El número de asientos debe estar entre 1 y 20'); return; }
+  if(!phone) { showFormError('El teléfono es obligatorio'); return; }
+
+  // Validar formato teléfono: +34 seguido de exactamente 9 dígitos
+  const phoneRegex = /^\+34[0-9]{9}$/;
+  if(!phoneRegex.test(phone)){ showFormError('El teléfono debe tener el formato +34 seguido de 9 dígitos. Ejemplo: +34620642781'); return; }
+
+  // Verificar código duplicado localmente antes de llamar al servidor
+  if(cachedData && cachedData.guests.find(g => g.code === code)){
+    showFormError(`El código "${code}" ya existe. Cambia el nombre o el número de asientos.`);
+    return;
+  }
+
   showLoading(true);
   const r = await api({ action:'adminAddGuest', user:adminUser, pass:adminPass, code, name, maxSeats:seats, phone });
   showLoading(false);
+
   if(r.ok){
-    document.getElementById('f-code').value='';
-    document.getElementById('f-name').value='';
-    document.getElementById('f-seats').value='';
-    document.getElementById('f-phone').value='';
     document.getElementById('addForm').classList.remove('show');
     await loadData();
-  } else { alert('Error: '+(r.error||'No se pudo añadir')); }
+  } else {
+    showFormError(r.error || 'No se pudo guardar el invitado');
+  }
 }
 
 // ── EDIT ──
@@ -600,7 +1124,16 @@ function openEdit(code){
   document.getElementById('e-name').value  = g.name;
   document.getElementById('e-seats').value = g.maxSeats;
   document.getElementById('e-phone').value = g.phone||'';
+  document.getElementById('editFormError').style.display = 'none';
   document.getElementById('editModal').classList.add('show');
+}
+
+function showToast(msg){
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#3a2820;color:white;padding:12px 24px;border-radius:12px;font-size:13px;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,.3);font-family:Lato,sans-serif;animation:fadeUp .3s ease';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(), 3500);
 }
 
 async function saveEdit(){
@@ -608,23 +1141,34 @@ async function saveEdit(){
   const name    = document.getElementById('e-name').value.trim();
   const seats   = document.getElementById('e-seats').value.trim();
   const phone   = document.getElementById('e-phone').value.trim();
-  if(!newCode||!name||!seats){ alert('Rellena todos los campos'); return; }
+
+  if(!newCode) { document.getElementById('editFormError').textContent='⚠️ El código es obligatorio'; document.getElementById('editFormError').style.display='block'; return; }
+  if(!name)    { document.getElementById('editFormError').textContent='⚠️ El nombre es obligatorio'; document.getElementById('editFormError').style.display='block'; return; }
+  if(!seats)   { document.getElementById('editFormError').textContent='⚠️ Los asientos son obligatorios'; document.getElementById('editFormError').style.display='block'; return; }
+  if(phone && !/^\+34[0-9]{9}$/.test(phone)){ document.getElementById('editFormError').textContent='⚠️ El teléfono debe ser +34 seguido de 9 dígitos'; document.getElementById('editFormError').style.display='block'; return; }
+
   showLoading(true);
   closeModal('editModal');
   const r = await api({ action:'adminUpdateGuest', user:adminUser, pass:adminPass, code:editingCode, newCode, name, maxSeats:seats, phone });
   showLoading(false);
   if(r.ok){ await loadData(); }
-  else { alert('Error: '+(r.error||'No se pudo actualizar')); }
+  else {
+    document.getElementById('editFormError').textContent = '⚠️ ' + (r.error||'No se pudo actualizar');
+    document.getElementById('editModal').classList.add('show');
+    document.getElementById('editFormError').style.display='block';
+  }
 }
 
 // ── DELETE ──
 async function deleteGuest(code, name){
-  if(!confirm(`¿Eliminar a ${name} de la lista de invitados?\n\nSu código dejará de funcionar.`)) return;
+  // Use a custom confirm inside the page instead of native alert
+  const ok = window.confirm(`¿Eliminar a "${name}" de la lista?\n\nSu código dejará de funcionar y no podrá confirmar asistencia.`);
+  if(!ok) return;
   showLoading(true);
   const r = await api({ action:'adminDeleteGuest', user:adminUser, pass:adminPass, code });
   showLoading(false);
   if(r.ok){ await loadData(); }
-  else { alert('Error: '+(r.error||'No se pudo eliminar')); }
+  else { showToast('Error: '+(r.error||'No se pudo eliminar')); }
 }
 
 // ── WHATSAPP ──
