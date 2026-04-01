@@ -13,8 +13,6 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--dark);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 10%,rgba(232,197,176,.35) 0%,transparent 55%),radial-gradient(ellipse at 80% 90%,rgba(201,124,110,.18) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,#fdf8f2 0%,#f5ede3 100%);z-index:-1}
-
-/* MUSIC BAR */
 .music-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,242,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,.2);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;max-width:480px;margin:0 auto}
 .music-info{display:flex;align-items:center;gap:10px}
 .music-note{font-size:16px;animation:spin-note 3s linear infinite}
@@ -22,17 +20,11 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .music-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
 .music-song{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--rose)}
 .music-btn{background:none;border:1px solid rgba(201,169,110,.4);color:var(--gold);border-radius:50%;width:34px;height:34px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-
-/* NAV */
 .nav-dots{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:10px;align-items:center;background:rgba(253,248,242,.92);backdrop-filter:blur(8px);padding:10px 18px;border-radius:50px;border:1px solid rgba(201,169,110,.2);box-shadow:0 4px 20px rgba(139,74,66,.1)}
 .nav-dot{width:8px;height:8px;border-radius:50%;background:var(--blush);border:none;cursor:pointer;transition:all .3s;padding:0}
 .nav-dot.active{background:var(--deep-rose);transform:scale(1.35)}
-
-/* PAGES */
 .page{display:none;max-width:480px;margin:0 auto;padding:58px 0 90px}
 .page.active{display:block}
-
-/* PHOTO */
 .photo-section{padding:20px 20px 0;animation:fadeUp .9s ease both}
 .photo-vintage-frame{position:relative;border-radius:16px;overflow:hidden;border:3px solid rgba(201,169,110,.45);box-shadow:0 8px 32px rgba(139,74,66,.2),0 0 0 1px rgba(255,255,255,.5) inset;aspect-ratio:4/3}
 .photo-vintage-frame img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;filter:sepia(.5) contrast(1.1) brightness(.92) saturate(.7)}
@@ -43,8 +35,6 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .photo-corner{position:absolute;width:28px;height:28px;z-index:3}
 .photo-corner svg{width:100%;height:100%}
 .pc-tl{top:8px;left:8px}.pc-tr{top:8px;right:8px;transform:scaleX(-1)}.pc-bl{bottom:8px;left:8px;transform:scaleY(-1)}.pc-br{bottom:8px;right:8px;transform:scale(-1,-1)}
-
-/* HERO */
 .hero{position:relative;text-align:center;padding:32px 30px 28px;overflow:hidden}
 .floral-tl,.floral-tr,.floral-bl,.floral-br{position:absolute;width:130px;height:130px;opacity:.7}
 .floral-tl{top:-6px;left:-6px}.floral-tr{top:-6px;right:-6px;transform:rotate(90deg)}.floral-bl{bottom:-6px;left:-6px;transform:rotate(270deg)}.floral-br{bottom:-6px;right:-6px;transform:rotate(180deg)}
@@ -52,20 +42,14 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .names{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,13vw,66px);font-weight:300;font-style:italic;color:var(--deep-rose);line-height:1;animation:fadeUp 1s .2s ease both}
 .names span{display:block;font-size:.38em;font-style:normal;font-family:'Cinzel',serif;letter-spacing:6px;color:var(--gold);margin:8px 0}
 .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);margin-top:16px;line-height:1.8;max-width:300px;margin-left:auto;margin-right:auto;animation:fadeUp 1s .3s ease both}
-
-/* DIVIDER */
 .divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px 24px}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--blush),transparent)}
 .divider-icon{color:var(--gold);font-size:15px}
-
-/* GENERIC CARDS */
 .info-section{padding:0 20px}
 .info-card{background:rgba(255,255,255,.7);border:1px solid rgba(201,169,110,.25);border-radius:16px;padding:22px 18px;margin-bottom:12px;backdrop-filter:blur(8px);box-shadow:0 4px 24px rgba(139,74,66,.06);text-align:center}
 .info-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
 .info-value{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--deep-rose);line-height:1.3}
 .info-sub{font-size:13px;color:var(--rose);margin-top:4px;font-style:italic}
-
-/* COUNTDOWN */
 .countdown-card{background:linear-gradient(135deg,var(--deep-rose) 0%,#7a3830 100%);border-radius:16px;padding:22px 14px;margin:0 20px 12px;text-align:center;box-shadow:0 8px 32px rgba(139,74,66,.25);position:relative;overflow:hidden}
 .countdown-card::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.05)}
 .countdown-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:14px}
@@ -74,22 +58,16 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .countdown-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#fff;line-height:1;background:rgba(255,255,255,.08);border-radius:10px;padding:4px 0;width:100%;text-align:center}
 .countdown-unit{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:rgba(255,255,255,.5);margin-top:5px;text-transform:uppercase}
 .countdown-sep{font-family:'Cormorant Garamond',serif;font-size:32px;color:rgba(255,255,255,.3);align-self:flex-start;margin-top:3px;line-height:1.2}
-
-/* LOCATION */
 .location-card{margin:0 20px 12px}
 .location-inner{background:rgba(255,255,255,.7);border:1px solid rgba(201,169,110,.25);border-radius:16px;padding:20px 18px;backdrop-filter:blur(8px);text-align:center}
 .location-icon{font-size:20px;margin-bottom:6px}
 .location-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--deep-rose);margin-bottom:5px}
 .location-address{font-size:12px;color:#999;line-height:1.7;margin-bottom:14px}
 .map-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;padding:10px 20px;border-radius:50px;text-decoration:none;text-transform:uppercase}
-
-/* QUOTE */
 .quote-section{padding:14px 36px;text-align:center}
 .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);line-height:1.9}
 .quote::before{content:'\201C';font-size:2em;line-height:0;vertical-align:-.4em;color:var(--blush)}
 .quote::after{content:'\201D';font-size:2em;line-height:0;vertical-align:-.4em;color:var(--blush)}
-
-/* CTA */
 .cta-section{margin:0 20px 12px}
 .cta-card{border-radius:16px;padding:22px 18px;text-align:center;position:relative;overflow:hidden}
 .cta-card-emoji{position:absolute;right:-8px;bottom:-8px;font-size:60px;opacity:.07}
@@ -97,8 +75,6 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .cta-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#999;margin-bottom:14px;line-height:1.6}
 .action-btn{display:inline-flex;align-items:center;gap:8px;color:white;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;padding:12px 26px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:all .3s;text-transform:uppercase;box-shadow:0 4px 16px rgba(139,74,66,.2)}
 .action-btn:active{transform:translateY(-1px)}
-
-/* CONTACT */
 .contact-section{margin:0 20px 12px}
 .contact-card{background:rgba(255,255,255,.6);border:1px solid rgba(201,169,110,.2);border-radius:16px;padding:18px;text-align:center;backdrop-filter:blur(8px)}
 .contact-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
@@ -106,31 +82,25 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .contact-btn{flex:1;padding:10px 6px;border-radius:10px;border:1px solid rgba(201,169,110,.3);background:white;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:4px}
 .contact-btn-name{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--deep-rose)}
 .contact-btn-num{font-size:11px;color:#aaa}
-
-/* FOOTER */
 .footer{text-align:center;padding:24px 20px 10px}
 .footer-hearts{font-size:18px;margin-bottom:6px;display:block;animation:pulse 2s infinite}
 .footer-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--blush)}
-
-/* BACK BTN */
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(201,169,110,.4);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;padding:8px 16px;border-radius:50px;cursor:pointer;margin-bottom:20px;text-transform:uppercase}
-
-/* MENU PAGE */
+/* MENU */
 .menu-page-hero{text-align:center;padding:30px 28px 18px;position:relative;overflow:hidden}
 .menu-page-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(34px,10vw,50px);color:var(--deep-rose);line-height:1.1}
 .menu-page-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);margin-top:10px;line-height:1.8;max-width:310px;margin-left:auto;margin-right:auto}
 .puestos{padding:0 20px}
 .puesto-card{border-radius:20px;overflow:hidden;margin-bottom:18px;box-shadow:0 8px 32px rgba(139,74,66,.13);animation:fadeUp .7s ease both}
-.puesto-img-wrap{position:relative;height:200px;overflow:hidden}
-.puesto-img-wrap img{width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.05) brightness(.95) saturate(.9)}
+.puesto-img-wrap{position:relative;height:200px;overflow:hidden;background:linear-gradient(135deg,var(--deep-rose),var(--rose))}
+.puesto-img-wrap img{width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.05) brightness(.95) saturate(.9);display:block}
 .puesto-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(40,15,10,.55) 100%)}
-.puesto-flag{position:absolute;top:14px;right:14px;font-size:22px}
+.puesto-flag{position:absolute;top:14px;right:14px;font-size:28px}
 .puesto-body{background:rgba(255,255,255,.78);backdrop-filter:blur(10px);padding:18px 20px 20px;border:1px solid rgba(201,169,110,.2);border-top:none;border-radius:0 0 20px 20px}
 .puesto-num{font-family:'Cinzel',serif;font-size:8px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
 .puesto-name{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--deep-rose);margin-bottom:7px}
 .puesto-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#888;line-height:1.7}
 .puesto-accent{display:inline-block;margin-top:10px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--rose);text-transform:uppercase;border-bottom:1px solid rgba(201,124,110,.3);padding-bottom:2px}
-
 /* REGALO */
 .regalo-hero{text-align:center;padding:30px 28px 18px;position:relative;overflow:hidden}
 .regalo-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(32px,9vw,48px);color:var(--deep-rose);line-height:1.1;margin-bottom:12px}
@@ -143,31 +113,28 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .presencia-body{padding:20px 22px}
 .presencia-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#666;line-height:1.9;text-align:center}
 .presencia-highlight{display:block;margin:14px 0;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--deep-rose);text-transform:uppercase;text-align:center}
-.sobres-card{margin:0 20px 16px;border-radius:20px;overflow:hidden;box-shadow:0 6px 28px rgba(139,74,66,.1)}
-.sobres-header{background:linear-gradient(135deg,#5c4a8a,#7b5ea7);padding:20px 22px 16px;text-align:center;position:relative;overflow:hidden}
-.sobres-header::after{content:'✉️';position:absolute;right:-10px;bottom:-10px;font-size:70px;opacity:.1}
-.sobres-header-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,.95);font-style:italic;margin-top:4px}
-.sobres-sub{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.65);text-transform:uppercase}
-.sobres-body{background:rgba(255,255,255,.8);backdrop-filter:blur(10px);border:1px solid rgba(180,150,200,.25);border-top:none;border-radius:0 0 20px 20px;padding:20px 22px}
-.sobres-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#666;line-height:1.9;text-align:center;margin-bottom:16px}
-.destinos{display:flex;gap:10px;margin-bottom:18px}
-.destino{flex:1;border-radius:12px;text-align:center;border:1px solid rgba(180,150,200,.2);background:linear-gradient(135deg,#f8f4ff,#fdf8f2);padding:14px 8px}
-.destino-flag{font-size:24px;margin-bottom:4px;display:block}
-.destino-name{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--deep-rose)}
-.destino-desc{font-size:10px;color:#bbb;margin-top:2px}
-.envelope-rain{position:relative;height:70px;overflow:hidden;margin-bottom:16px;border-radius:12px;background:linear-gradient(135deg,rgba(92,74,138,.08),rgba(201,169,110,.08))}
-.env{position:absolute;top:-20px;font-size:20px;animation:fall linear infinite;opacity:.8}
-@keyframes fall{0%{top:-20px;opacity:.9}100%{top:80px;opacity:.3}}
-.buzon-cta{background:linear-gradient(135deg,#5c4a8a,#7b5ea7);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:12px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 16px rgba(92,74,138,.3)}
-
-/* ══════════════ RSVP ══════════════ */
+/* BIZUM */
+.bizum-card{margin:0 20px 16px;border-radius:20px;overflow:hidden;box-shadow:0 6px 28px rgba(139,74,66,.1)}
+.bizum-header{background:linear-gradient(135deg,#1a56db,#3b82f6);padding:20px 22px 16px;text-align:center;position:relative;overflow:hidden}
+.bizum-header::after{content:'💙';position:absolute;right:-10px;bottom:-10px;font-size:70px;opacity:.12}
+.bizum-header-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,.95);font-style:italic;margin-top:4px}
+.bizum-sub{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:rgba(255,255,255,.65);text-transform:uppercase}
+.bizum-body{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border:1px solid rgba(26,86,219,.15);border-top:none;border-radius:0 0 20px 20px;padding:20px 22px}
+.bizum-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#666;line-height:1.9;text-align:center;margin-bottom:18px}
+.bizum-btns{display:flex;gap:12px}
+.bizum-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px;border-radius:14px;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
+.bizum-btn-jorge{background:linear-gradient(135deg,#1a56db,#2563eb);box-shadow:0 4px 16px rgba(26,86,219,.3)}
+.bizum-btn-ana{background:linear-gradient(135deg,var(--deep-rose),var(--rose));box-shadow:0 4px 16px rgba(139,74,66,.28)}
+.bizum-btn:active{transform:translateY(-2px)}
+.bizum-btn-icon{font-size:22px}
+.bizum-btn-name{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:white;text-transform:uppercase}
+.bizum-btn-num{font-family:'Cormorant Garamond',serif;font-size:14px;color:rgba(255,255,255,.85)}
+/* RSVP */
 .rsvp-hero{text-align:center;padding:30px 28px 18px;position:relative;overflow:hidden}
 .rsvp-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(32px,9vw,48px);color:var(--deep-rose);line-height:1.1;margin-bottom:10px}
 .rsvp-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);line-height:1.8;max-width:320px;margin:0 auto}
 .deadline-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,169,110,.12);border:1px solid rgba(201,169,110,.35);border-radius:50px;padding:8px 18px;margin-top:14px}
 .deadline-text{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
-
-/* Code gate */
 .code-gate{margin:0 20px 16px;background:rgba(255,255,255,.78);border:1px solid rgba(201,169,110,.25);border-radius:20px;padding:28px 22px;text-align:center;box-shadow:0 6px 28px rgba(139,74,66,.08);backdrop-filter:blur(8px)}
 .code-gate.hidden{display:none}
 .code-icon{font-size:32px;margin-bottom:10px;display:block}
@@ -177,14 +144,26 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .code-input-wrap{display:flex;gap:8px;max-width:290px;margin:0 auto}
 .code-input{flex:1;padding:13px 16px;border-radius:12px;border:1.5px solid rgba(201,169,110,.4);background:rgba(253,248,242,.9);font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--dark);text-transform:uppercase;outline:none;-webkit-appearance:none;transition:border .2s}
 .code-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.15)}
-.code-submit{padding:13px 18px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--deep-rose),var(--rose));color:white;font-size:18px;cursor:pointer;box-shadow:0 4px 14px rgba(139,74,66,.25)}
-.code-loading{display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--gold);margin-top:12px}
-.code-loading.show{display:block}
+.code-submit{padding:13px 18px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--deep-rose),var(--rose));color:white;font-size:18px;cursor:pointer}
 .code-error{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--rose);margin-top:12px;display:none;animation:shake .4s ease}
 .code-error.show{display:block}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-
-/* Form */
+/* Already registered state */
+.already-card{margin:0 20px 12px;border-radius:20px;overflow:hidden;box-shadow:0 6px 28px rgba(139,74,66,.1);display:none}
+.already-card.show{display:block;animation:fadeUp .5s ease}
+.already-header{background:linear-gradient(135deg,#b8860b,#c9a96e);padding:20px 22px;text-align:center}
+.already-header-icon{font-size:32px;margin-bottom:6px;display:block}
+.already-header-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:white;font-style:italic}
+.already-header-sub{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(255,255,255,.8);font-style:italic;margin-top:4px}
+.already-body{background:rgba(255,255,255,.85);padding:20px 22px;border:1px solid rgba(201,169,110,.2);border-top:none;border-radius:0 0 20px 20px}
+.already-info{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#666;line-height:1.8;text-align:center;margin-bottom:18px}
+.already-actions{display:flex;flex-direction:column;gap:10px}
+.already-btn{width:100%;padding:14px;border:none;border-radius:12px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s}
+.already-btn-update{background:linear-gradient(135deg,var(--deep-rose),var(--rose));color:white;box-shadow:0 4px 14px rgba(139,74,66,.25)}
+.already-btn-cancel{background:transparent;border:1px solid rgba(201,124,110,.4);color:var(--rose)}
+/* Update seats */
+.update-seats-wrap{display:none;margin-top:14px;padding:16px;background:rgba(253,248,242,.9);border-radius:12px;border:1px solid rgba(201,169,110,.2)}
+.update-seats-wrap.show{display:block;animation:fadeUp .3s ease}
 .rsvp-form-wrap{display:none}
 .rsvp-form-wrap.show{display:block;animation:fadeUp .5s ease}
 .rsvp-welcome{margin:0 20px 14px;background:linear-gradient(135deg,var(--deep-rose),#c97c6e);border-radius:16px;padding:20px 22px;text-align:center;box-shadow:0 6px 24px rgba(139,74,66,.22);position:relative;overflow:hidden}
@@ -211,14 +190,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .rsvp-send-wrap{margin:0 20px 14px}
 .rsvp-send-btn{width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--deep-rose),var(--rose));color:white;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(139,74,66,.28);transition:all .3s}
 .rsvp-send-btn:disabled{opacity:.4;cursor:not-allowed}
-.cancel-section{margin:0 20px 16px;text-align:center}
-.cancel-toggle{background:none;border:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#ccc;cursor:pointer;text-decoration:underline;padding:0}
-.cancel-box{display:none;margin-top:12px;padding:16px;background:rgba(255,235,230,.5);border:1px solid rgba(201,124,110,.2);border-radius:12px}
-.cancel-box.show{display:block;animation:fadeUp .3s ease}
-.cancel-box p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#999;margin-bottom:12px;line-height:1.6}
-.cancel-btn{background:linear-gradient(135deg,#8b4a42,var(--rose));color:white;border:none;border-radius:10px;padding:11px 22px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
-
-/* ── CONFIRMED STATE ── */
+/* Confirmed */
 .rsvp-confirmed{margin:0 20px 14px;display:none;border-radius:20px;padding:32px 24px;text-align:center}
 .rsvp-confirmed.show{display:block;animation:fadeUp .5s ease}
 .rsvp-confirmed.attend-yes{background:linear-gradient(135deg,rgba(74,139,90,.1),rgba(106,171,122,.06));border:1px solid rgba(74,139,90,.22)}
@@ -227,11 +199,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 @keyframes popIn{from{transform:scale(0)}50%{transform:scale(1.15)}to{transform:scale(1)}}
 .confirmed-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;margin-bottom:8px}
 .attend-yes .confirmed-title{color:#4a8b5a}
-.attend-no  .confirmed-title{color:var(--deep-rose)}
+.attend-no .confirmed-title{color:var(--deep-rose)}
 .confirmed-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#888;line-height:1.8;margin-bottom:22px}
-
-/* CALENDAR BUTTONS */
-.cal-section{margin-top:4px}
+/* Calendar */
+.cal-section{margin-top:4px;margin-bottom:20px}
 .cal-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:block}
 .cal-btns{display:flex;gap:10px}
 .cal-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;border-radius:14px;border:none;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.1)}
@@ -241,8 +212,10 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .cal-btn-icon{font-size:22px}
 .cal-btn-name{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:white;text-transform:uppercase}
 .cal-btn-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:rgba(255,255,255,.7)}
-
-/* PETAL */
+/* Back to home btn */
+.home-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border:1.5px solid rgba(201,169,110,.4);border-radius:14px;background:transparent;color:var(--gold);font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:4px}
+.home-btn:active{background:rgba(201,169,110,.08)}
+/* Petal */
 .petal{position:fixed;pointer-events:none;animation:petalFall 3s ease-in forwards;z-index:999}
 @keyframes petalFall{0%{opacity:1;transform:translateY(-20px) rotate(0deg) scale(1)}100%{opacity:0;transform:translateY(100vh) rotate(720deg) scale(.5)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -258,17 +231,17 @@ a,button{-webkit-tap-highlight-color:transparent}
 <div class="music-bar">
   <div class="music-info">
     <span class="music-note">♪</span>
-    <div><div class="music-label">Música</div><div class="music-song">Can't Help Falling in Love</div></div>
+    <div><div class="music-label">Música</div><div class="music-song">A Thousand Years — Christina Perri</div></div>
   </div>
   <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶</button>
 </div>
 
 <!-- NAV -->
 <div class="nav-dots">
-  <button class="nav-dot active" onclick="showPage('page-invite',0)" title="Inicio"></button>
-  <button class="nav-dot" onclick="showPage('page-menu',1)" title="Menú"></button>
-  <button class="nav-dot" onclick="showPage('page-regalo',2)" title="Regalo"></button>
-  <button class="nav-dot" onclick="showPage('page-rsvp',3)" title="RSVP"></button>
+  <button class="nav-dot active" onclick="showPage('page-invite',0)"></button>
+  <button class="nav-dot" onclick="showPage('page-menu',1)"></button>
+  <button class="nav-dot" onclick="showPage('page-regalo',2)"></button>
+  <button class="nav-dot" onclick="showPage('page-rsvp',3)"></button>
 </div>
 
 <!-- ════ INVITACIÓN ════ -->
@@ -371,9 +344,33 @@ a,button{-webkit-tap-highlight-color:transparent}
   </div>
   <div class="divider"><span class="divider-icon">🌸</span></div>
   <div class="puestos">
-    <div class="puesto-card" style="animation-delay:.1s"><div class="puesto-img-wrap"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Barbacoa"><div class="puesto-img-overlay"></div><div class="puesto-flag">🔥</div></div><div class="puesto-body"><p class="puesto-num">✦ Puesto 01</p><h3 class="puesto-name">Barbacoa</h3><p class="puesto-desc">Para los amantes del sabor ahumado y las brasas al estilo americano. Carnes seleccionadas, marinadas y cocinadas a fuego lento.</p><span class="puesto-accent">Estilo americano · Brasa</span></div></div>
-    <div class="puesto-card" style="animation-delay:.2s"><div class="puesto-img-wrap"><img src="https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=800&q=80" alt="Paella"><div class="puesto-img-overlay"></div><div class="puesto-flag">🥘</div></div><div class="puesto-body"><p class="puesto-num">✦ Puesto 02</p><h3 class="puesto-name">Paellas</h3><p class="puesto-desc">Porque no hay nada más español que una buena paella recién hecha. Arroz en su punto, azafrán y el mejor socarrat.</p><span class="puesto-accent">Tradición española · Recién hecha</span></div></div>
-    <div class="puesto-card" style="animation-delay:.3s"><div class="puesto-img-wrap"><img src="https://images.unsplash.com/photo-1611474826218-4cd77f53ef73?w=800&q=80" alt="Latina"><div class="puesto-img-overlay"></div><div class="puesto-flag">🌎</div></div><div class="puesto-body"><p class="puesto-num">✦ Puesto 03</p><h3 class="puesto-name">Peruano & Colombiano</h3><p class="puesto-desc">Bocaditos y sabores de nuestra tierra que les harán decir "¡qué rico!" sin pensarlo. Ceviche, lomo saltado y mucho más.</p><span class="puesto-accent">Sabores de casa · Tradición latina</span></div></div>
+    <!-- Puesto 1: Barbacoa — emoji background fallback for mobile -->
+    <div class="puesto-card" style="animation-delay:.1s">
+      <div class="puesto-img-wrap" style="display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,#3d1a0a,#8b4a42)">
+        <span style="filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))">🔥</span>
+        <div class="puesto-img-overlay"></div>
+        <div class="puesto-flag" style="font-size:14px;top:10px;right:10px;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:20px;color:white;font-family:'Cinzel',serif;letter-spacing:2px">BRASA</div>
+      </div>
+      <div class="puesto-body"><p class="puesto-num">✦ Puesto 01</p><h3 class="puesto-name">Barbacoa</h3><p class="puesto-desc">Para los amantes del sabor ahumado y las brasas al estilo americano. Carnes seleccionadas, marinadas y cocinadas a fuego lento.</p><span class="puesto-accent">Estilo americano · Brasa</span></div>
+    </div>
+    <!-- Puesto 2: Paellas -->
+    <div class="puesto-card" style="animation-delay:.2s">
+      <div class="puesto-img-wrap" style="display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,#5c3a00,#c9a96e)">
+        <span style="filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))">🥘</span>
+        <div class="puesto-img-overlay"></div>
+        <div class="puesto-flag" style="font-size:14px;top:10px;right:10px;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:20px;color:white;font-family:'Cinzel',serif;letter-spacing:2px">PAELLA</div>
+      </div>
+      <div class="puesto-body"><p class="puesto-num">✦ Puesto 02</p><h3 class="puesto-name">Paellas</h3><p class="puesto-desc">Porque no hay nada más español que una buena paella recién hecha. Arroz en su punto, azafrán y el mejor socarrat.</p><span class="puesto-accent">Tradición española · Recién hecha</span></div>
+    </div>
+    <!-- Puesto 3: Latino -->
+    <div class="puesto-card" style="animation-delay:.3s">
+      <div class="puesto-img-wrap" style="display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,#0d3d1a,#4a8b5a)">
+        <span style="filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))">🌎</span>
+        <div class="puesto-img-overlay"></div>
+        <div class="puesto-flag" style="font-size:14px;top:10px;right:10px;background:rgba(0,0,0,.3);padding:4px 10px;border-radius:20px;color:white;font-family:'Cinzel',serif;letter-spacing:2px">LATINO</div>
+      </div>
+      <div class="puesto-body"><p class="puesto-num">✦ Puesto 03</p><h3 class="puesto-name">Peruano & Colombiano</h3><p class="puesto-desc">Bocaditos y sabores de nuestra tierra que les harán decir "¡qué rico!" sin pensarlo. Ceviche, lomo saltado y mucho más.</p><span class="puesto-accent">Sabores de casa · Tradición latina</span></div>
+    </div>
   </div>
   <div style="text-align:center;padding:8px 34px 18px"><div class="divider"><span class="divider-icon">🌿</span></div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);line-height:1.9">Será una mezcla deliciosa de sabores<br>en un solo día, en un solo lugar<br>y con la mejor compañía.</p></div>
   <div class="footer"><span class="footer-hearts">🤍</span><p class="footer-text">Con todo nuestro amor — Ana & Jorge</p></div>
@@ -398,18 +395,26 @@ a,button{-webkit-tap-highlight-color:transparent}
       <p class="presencia-text">Habéis recorrido un camino con nosotros — algunos desde el principio, otros llegasteis en el momento justo. Hoy queremos celebrar también eso: lo que cada uno representa para nosotros.</p>
     </div>
   </div>
-  <div class="sobres-card">
-    <div class="sobres-header"><div class="sobres-sub">Si deseas añadir algo más</div><div class="sobres-header-title">Lluvia de Sobres ✉️</div></div>
-    <div class="sobres-body">
-      <p class="sobres-text">Si además de vuestro cariño queréis sumarse a un sueño, hemos pensado en nuestra luna de miel — un viaje que llevamos tiempo imaginando juntos.</p>
-      <div class="envelope-rain" id="envRain"></div>
-      <p class="sobres-text">Cada sobre será una pequeña parte de esa aventura que comenzaremos como marido y mujer.</p>
-      <div class="destinos">
-        <div class="destino"><span class="destino-flag">🌊</span><div class="destino-name">Playa</div><div class="destino-desc">Mar & sol</div></div>
-        <div class="destino"><span class="destino-flag">🗺</span><div class="destino-name">Aventura</div><div class="destino-desc">Por descubrir</div></div>
-        <div class="destino"><span class="destino-flag">🌆</span><div class="destino-name">Ciudad</div><div class="destino-desc">Cultura & amor</div></div>
+  <!-- BIZUM -->
+  <div class="bizum-card">
+    <div class="bizum-header">
+      <div class="bizum-sub">Si deseas añadir algo más</div>
+      <div class="bizum-header-title">Bizum 💙</div>
+    </div>
+    <div class="bizum-body">
+      <p class="bizum-text">Si además de vuestro cariño queréis sumarse a nuestra luna de miel, podéis hacernos un Bizum. Cada detalle lo llevaremos con nosotros a cada rincón del mundo.</p>
+      <div class="bizum-btns">
+        <a class="bizum-btn bizum-btn-jorge" href="tel:620642781">
+          <span class="bizum-btn-icon">💙</span>
+          <span class="bizum-btn-name">Jorge</span>
+          <span class="bizum-btn-num">620 642 781</span>
+        </a>
+        <a class="bizum-btn bizum-btn-ana" href="tel:608052926">
+          <span class="bizum-btn-icon">🌸</span>
+          <span class="bizum-btn-name">Ana</span>
+          <span class="bizum-btn-num">608 052 926</span>
+        </a>
       </div>
-      <a class="buzon-cta" href="https://wa.me/34620642781?text=Hola%20Jorge%20y%20Ana%2C%20quiero%20sumarme%20a%20vuestra%20lluvia%20de%20sobres%20%F0%9F%8C%9F" target="_blank">✉️ &nbsp;Contribuir al viaje</a>
     </div>
   </div>
   <div class="divider"><span class="divider-icon">🌿</span></div>
@@ -449,7 +454,30 @@ a,button{-webkit-tap-highlight-color:transparent}
     <p class="code-error" id="codeError">❌ Código no encontrado. Revisa el mensaje.</p>
   </div>
 
-  <!-- Form -->
+  <!-- YA REGISTRADO -->
+  <div class="already-card" id="alreadyCard">
+    <div class="already-header">
+      <span class="already-header-icon">⭐</span>
+      <div class="already-header-title" id="alreadyName">—</div>
+      <div class="already-header-sub" id="alreadyStatus">—</div>
+    </div>
+    <div class="already-body">
+      <p class="already-info" id="alreadyInfo">—</p>
+      <div class="already-actions">
+        <button class="already-btn already-btn-update" onclick="showUpdateSeats()">✏️ &nbsp;Modificar número de personas</button>
+        <div class="update-seats-wrap" id="updateSeatsWrap">
+          <span class="field-label" style="margin-bottom:10px;display:block">Nuevo número de personas</span>
+          <div class="seats-selector" id="updateSeatsSelector"></div>
+          <button class="already-btn already-btn-update" style="margin-top:14px" onclick="submitUpdate()">
+            <span id="updateBtnText">Guardar cambios</span>
+          </button>
+        </div>
+        <button class="already-btn already-btn-cancel" onclick="submitCancel()">🗑 &nbsp;Eliminarme de la lista</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario nuevo -->
   <div class="rsvp-form-wrap" id="rsvpForm">
     <div class="rsvp-welcome">
       <div class="rsvp-welcome-hi">¡Bienvenido/a!</div>
@@ -477,60 +505,42 @@ a,button{-webkit-tap-highlight-color:transparent}
         <span id="sendBtnText">Confirmar asistencia</span>
       </button>
     </div>
-    <div class="cancel-section">
-      <button class="cancel-toggle" onclick="toggleCancel()">¿Ya confirmaste y no puedes venir? Cancela aquí</button>
-      <div class="cancel-box" id="cancelBox">
-        <p>Introduce tu código para retirar tu confirmación. Te echaremos de menos 💐</p>
-        <button class="cancel-btn" onclick="cancelRSVP()">Retirar mi confirmación</button>
-      </div>
-    </div>
   </div>
 
-  <!-- CONFIRMED -->
+  <!-- CONFIRMADO -->
   <div class="rsvp-confirmed" id="rsvpConfirmed">
     <span class="confirmed-icon" id="confirmedIcon">🌸</span>
     <div class="confirmed-title" id="confirmedTitle">¡Nos vemos el 12 de septiembre!</div>
     <p class="confirmed-text" id="confirmedText">Tu lugar en nuestra mesa está guardado con mucho cariño 🥂</p>
-
-    <!-- CALENDAR BUTTONS -->
     <div class="cal-section" id="calSection" style="display:none">
       <span class="cal-label">Añade la fecha a tu calendario</span>
       <div class="cal-btns">
-        <a class="cal-btn cal-btn-google" id="calGoogle" href="#" target="_blank">
-          <span class="cal-btn-icon">📅</span>
-          <span class="cal-btn-name">Google</span>
-          <span class="cal-btn-sub">Calendar</span>
-        </a>
-        <a class="cal-btn cal-btn-apple" id="calApple" href="#" download="boda-ana-jorge.ics">
-          <span class="cal-btn-icon">🍎</span>
-          <span class="cal-btn-name">Apple</span>
-          <span class="cal-btn-sub">Calendario</span>
-        </a>
+        <a class="cal-btn cal-btn-google" id="calGoogle" href="#" target="_blank"><span class="cal-btn-icon">📅</span><span class="cal-btn-name">Google</span><span class="cal-btn-sub">Calendar</span></a>
+        <a class="cal-btn cal-btn-apple" id="calApple" href="#" download="boda-ana-jorge.ics"><span class="cal-btn-icon">🍎</span><span class="cal-btn-name">Apple</span><span class="cal-btn-sub">Calendario</span></a>
       </div>
     </div>
+    <button class="home-btn" onclick="showPage('page-invite',0)">🏠 &nbsp;Volver al inicio</button>
   </div>
 
   <div class="footer" style="margin-top:10px"><span class="footer-hearts">🤍</span><p class="footer-text">Con todo nuestro amor — Ana & Jorge</p></div>
 </div>
 
 <script>
-// ★ PON AQUÍ TU URL DE GOOGLE APPS SCRIPT
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVmnIZapCwTNM7XQfCMfmtMNn5fev_hwZ0gY-v3XngoVJNsxSg3DXcXzf9bnSs89Zu/exec';
-
-// Datos de la boda para calendario
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwreTnVVQx_BRi-4vdltXHq5Fa0KVTy9nm-l-jnKSAjO8d9gi_kUajG1AeWF65Gymip/exec';
 const WEDDING = {
   title:    'Boda de Ana & Jorge 🌸',
-  start:    '20260912T110000Z',  // 13:00 Madrid = 11:00 UTC
-  end:      '20260912T220000Z',  // ~24:00 Madrid = 22:00 UTC
+  start:    '20260912T110000Z',
+  end:      '20260912T220000Z',
   location: 'Hugo Caro Espacio, C/ Santa María de la Colina 11, Villanueva del Pardillo, Madrid',
   detail:   '¡Nos casamos! Únete a la celebración de Ana y Jorge.'
 };
 
-let currentGuest  = null;
-let selectedSeats = 0;
+let currentGuest   = null;
+let selectedSeats  = 0;
 let selectedAttend = null;
+let updateSeats    = 0;
 
-// ── Auto-fill desde ?codigo=XXXX ──
+// Auto-fill desde ?codigo=
 (function(){
   const c = new URLSearchParams(window.location.search).get('codigo');
   if(c){ document.getElementById('codeInput').value = c; setTimeout(checkCode, 500); }
@@ -538,25 +548,24 @@ let selectedAttend = null;
 
 document.getElementById('codeInput').addEventListener('keydown', e => { if(e.key==='Enter') checkCode(); });
 
-// ── Verificar código contra Google Sheet ──
 async function checkCode(){
   const code = document.getElementById('codeInput').value.trim().toUpperCase();
   if(!code) return;
-
-
-
   document.getElementById('codeGate').classList.add('hidden');
   document.getElementById('codeLoading').style.display = 'block';
-
   try {
-    const url = SCRIPT_URL + '?codigo=' + encodeURIComponent(code);
-    const res = await fetch(url);
+    const res  = await fetch(SCRIPT_URL + '?codigo=' + encodeURIComponent(code));
     const data = await res.json();
     document.getElementById('codeLoading').style.display = 'none';
     if(!data.ok){ document.getElementById('codeGate').classList.remove('hidden'); showCodeError(); return; }
     currentGuest = { name: data.name, maxSeats: data.maxSeats, code };
-    showForm(currentGuest);
-  } catch(e) {
+    // ¿Ya registrado?
+    if(data.alreadyConfirmed){
+      showAlreadyRegistered(data);
+    } else {
+      showForm(currentGuest);
+    }
+  } catch(e){
     document.getElementById('codeLoading').style.display = 'none';
     document.getElementById('codeGate').classList.remove('hidden');
     showCodeError('Error de conexión. Inténtalo de nuevo.');
@@ -567,15 +576,62 @@ function showCodeError(msg){
   const err = document.getElementById('codeError');
   err.textContent = msg || '❌ Código no encontrado. Revisa el mensaje.';
   err.classList.add('show');
-  document.getElementById('codeInput').style.borderColor = 'var(--rose)';
-  setTimeout(()=>{ err.classList.remove('show'); document.getElementById('codeInput').style.borderColor=''; }, 3500);
+  setTimeout(()=>err.classList.remove('show'), 3500);
 }
 
+// ── YA REGISTRADO ──
+function showAlreadyRegistered(data){
+  const card = document.getElementById('alreadyCard');
+  card.classList.add('show');
+  document.getElementById('alreadyName').textContent = data.name;
+  const isConfirmed = data.alreadyConfirmed === 'Confirmado';
+  document.getElementById('alreadyStatus').textContent = isConfirmed
+    ? '✅ Ya tienes tu lugar reservado'
+    : '❌ Indicaste que no podías asistir';
+  document.getElementById('alreadyInfo').textContent = isConfirmed
+    ? `Tienes ${data.existingSeats} ${data.existingSeats==1?'persona':'personas'} confirmadas${data.existingAllergy && data.existingAllergy!=='—' ? ' · ' + data.existingAllergy : ''}.`
+    : 'Si has cambiado de opinión, puedes actualizar tu respuesta.';
+  // Build update seats selector
+  const sel = document.getElementById('updateSeatsSelector');
+  sel.innerHTML = '';
+  for(let i=1; i<=currentGuest.maxSeats; i++){
+    const btn = document.createElement('button');
+    btn.className = 'seat-btn' + (i == data.existingSeats ? ' selected' : '');
+    btn.innerHTML = `<span>${i}</span><span class="seat-lbl">${i===1?'persona':'personas'}</span>`;
+    btn.onclick = ()=>{ updateSeats=i; document.querySelectorAll('#updateSeatsSelector .seat-btn').forEach((b,j)=>b.classList.toggle('selected',j+1===i)); };
+    sel.appendChild(btn);
+  }
+  updateSeats = data.existingSeats || 1;
+}
+
+function showUpdateSeats(){
+  document.getElementById('updateSeatsWrap').classList.toggle('show');
+}
+
+async function submitUpdate(){
+  const btn = document.getElementById('updateBtnText');
+  btn.textContent = 'Guardando...';
+  try {
+    const params = new URLSearchParams({ action:'confirm', code: currentGuest.code, name: currentGuest.name, seats: updateSeats, allergy:'—', attending:'yes' });
+    await fetch(SCRIPT_URL + '?' + params.toString());
+  } catch(e){}
+  document.getElementById('alreadyCard').style.display='none';
+  showConfirmedState(true, `Has actualizado tu reserva a ${updateSeats} ${updateSeats==1?'persona':'personas'}. ¡Te esperamos! 🥂`);
+}
+
+async function submitCancel(){
+  if(!confirm('¿Seguro que quieres eliminarte de la lista?')) return;
+  try {
+    const params = new URLSearchParams({ action:'cancel', code: currentGuest.code, name: currentGuest.name });
+    await fetch(SCRIPT_URL + '?' + params.toString());
+  } catch(e){}
+  document.getElementById('alreadyCard').style.display='none';
+  showConfirmedState(false, 'Lo entendemos. Os deseamos toda la felicidad y os tendremos siempre en el corazón 🌸');
+}
+
+// ── FORMULARIO NUEVO ──
 function showForm(guest){
-  document.getElementById('codeGate').classList.add('hidden');
-  document.getElementById('codeLoading').style.display = 'none';
-  const form = document.getElementById('rsvpForm');
-  form.classList.add('show');
+  document.getElementById('rsvpForm').classList.add('show');
   document.getElementById('welcomeName').textContent  = guest.name;
   document.getElementById('welcomeSeats').textContent = guest.maxSeats===1 ? 'Invitación individual' : `Invitación para hasta ${guest.maxSeats} personas`;
   const sel = document.getElementById('seatsSelector');
@@ -602,7 +658,7 @@ function selectAttend(val){
 
 function selectSeats(n){
   selectedSeats=n;
-  document.querySelectorAll('.seat-btn').forEach((b,i)=>b.classList.toggle('selected',i+1===n));
+  document.querySelectorAll('#seatsSelector .seat-btn').forEach((b,i)=>b.classList.toggle('selected',i+1===n));
   updateSendBtn();
 }
 
@@ -615,111 +671,53 @@ async function sendRSVP(){
   btn.disabled = true;
   document.getElementById('sendBtnIcon').textContent='';
   document.getElementById('sendBtnText').innerHTML='<span style="display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite"></span> Enviando...';
-
   try {
     const params = new URLSearchParams({
-      action:    'confirm',
-      code:      currentGuest.code,
-      name:      currentGuest.name,
-      seats:     selectedAttend==='yes' ? selectedSeats : 0,
-      allergy:   document.getElementById('allergyInput').value.trim() || '—',
+      action: 'confirm', code: currentGuest.code, name: currentGuest.name,
+      seats: selectedAttend==='yes' ? selectedSeats : 0,
+      allergy: document.getElementById('allergyInput').value.trim() || '—',
       attending: selectedAttend
     });
     await fetch(SCRIPT_URL + '?' + params.toString());
-  } catch(e) {
-    console.log('Error enviando RSVP:', e);
-  }
-
-  showConfirmed(selectedAttend==='yes');
+  } catch(e){ console.log('Error:', e); }
+  document.getElementById('rsvpForm').style.display='none';
+  const msg = selectedAttend==='yes'
+    ? 'Tu lugar en nuestra mesa está guardado con mucho cariño. ¡No podemos esperar para celebrarlo juntos! 🥂'
+    : 'Lo entendemos. Os deseamos toda la felicidad y os tendremos siempre en el corazón 🌸';
+  showConfirmedState(selectedAttend==='yes', msg);
 }
 
-function showConfirmed(attending){
-  document.getElementById('rsvpForm').style.display='none';
+function showConfirmedState(attending, msg){
   const conf = document.getElementById('rsvpConfirmed');
-
-  if(attending){
-    conf.className = 'rsvp-confirmed show attend-yes';
-    document.getElementById('confirmedIcon').textContent  = '🌸';
-    document.getElementById('confirmedTitle').textContent = '¡Nos vemos el 12 de septiembre!';
-    document.getElementById('confirmedText').textContent  = 'Tu lugar en nuestra mesa está guardado con mucho cariño. ¡No podemos esperar para celebrarlo juntos! 🥂';
-    // Mostrar botones de calendario
-    document.getElementById('calSection').style.display = 'block';
-    buildCalendarLinks();
-    launchPetals();
-  } else {
-    conf.className = 'rsvp-confirmed show attend-no';
-    document.getElementById('confirmedIcon').textContent  = '💐';
-    document.getElementById('confirmedTitle').textContent = 'Gracias por avisarnos';
-    document.getElementById('confirmedText').textContent  = 'Lo entendemos. Os deseamos toda la felicidad y os tendremos siempre en el corazón 🌸';
-    document.getElementById('calSection').style.display = 'none';
-  }
+  conf.className = 'rsvp-confirmed show ' + (attending ? 'attend-yes' : 'attend-no');
+  document.getElementById('confirmedIcon').textContent  = attending ? '🌸' : '💐';
+  document.getElementById('confirmedTitle').textContent = attending ? '¡Nos vemos el 12 de septiembre!' : 'Gracias por avisarnos';
+  document.getElementById('confirmedText').textContent  = msg;
+  document.getElementById('calSection').style.display   = attending ? 'block' : 'none';
+  if(attending){ buildCalendarLinks(); launchPetals(); }
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── CALENDAR LINKS ──
 function buildCalendarLinks(){
-  const loc = encodeURIComponent(WEDDING.location);
-  const det = encodeURIComponent(WEDDING.detail);
-
-  // Google Calendar
-  const gUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE`
-    +`&text=${encodeURIComponent(WEDDING.title)}`
-    +`&dates=${WEDDING.start}/${WEDDING.end}`
-    +`&details=${det}&location=${loc}&sf=true&output=xml`;
+  const gUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(WEDDING.title)}&dates=${WEDDING.start}/${WEDDING.end}&details=${encodeURIComponent(WEDDING.detail)}&location=${encodeURIComponent(WEDDING.location)}&sf=true&output=xml`;
   document.getElementById('calGoogle').href = gUrl;
-
-  // Apple / ICS
-  const ics = [
-    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ana&Jorge//Boda//ES',
-    'BEGIN:VEVENT',
-    `DTSTART:${WEDDING.start}`,
-    `DTEND:${WEDDING.end}`,
-    `SUMMARY:${WEDDING.title}`,
-    `DESCRIPTION:${WEDDING.detail}`,
-    `LOCATION:${WEDDING.location}`,
-    'STATUS:CONFIRMED',
-    'END:VEVENT','END:VCALENDAR'
-  ].join('\r\n');
-  const blob = new Blob([ics], {type:'text/calendar'});
-  document.getElementById('calApple').href = URL.createObjectURL(blob);
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ana&Jorge//Boda//ES','BEGIN:VEVENT',
+    `DTSTART:${WEDDING.start}`,`DTEND:${WEDDING.end}`,`SUMMARY:${WEDDING.title}`,
+    `DESCRIPTION:${WEDDING.detail}`,`LOCATION:${WEDDING.location}`,'STATUS:CONFIRMED','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  document.getElementById('calApple').href = URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
 }
 
-// ── CANCEL ──
-async function cancelRSVP(){
-  if(!currentGuest) return;
-  const btn = document.querySelector('.cancel-btn');
-  btn.textContent='Cancelando...'; btn.disabled=true;
-  try{
-    const params = new URLSearchParams({ action:'cancel', code: currentGuest.code, name: currentGuest.name });
-    await fetch(SCRIPT_URL + '?' + params.toString());
-  }catch(e){ console.log('Error cancelando:', e); }
-  document.getElementById('rsvpForm').style.display='none';
-  const conf = document.getElementById('rsvpConfirmed');
-  conf.className='rsvp-confirmed show attend-no';
-  document.getElementById('confirmedIcon').textContent='💐';
-  document.getElementById('confirmedTitle').textContent='Gracias por avisarnos';
-  document.getElementById('confirmedText').textContent='Lo entendemos. Os deseamos mucha felicidad y os tendremos siempre en el corazón 🌸';
-  document.getElementById('calSection').style.display='none';
-}
-
-function toggleCancel(){ document.getElementById('cancelBox').classList.toggle('show'); }
-
-// ── PETALS ──
 function launchPetals(){
   const p=['🌸','🌺','🌷','✨','🥂','💐'];
-  for(let i=0;i<26;i++){
-    setTimeout(()=>{
-      const el=document.createElement('span');
-      el.className='petal';
-      el.textContent=p[Math.floor(Math.random()*p.length)];
-      el.style.cssText=`left:${Math.random()*100}vw;top:-30px;font-size:${14+Math.random()*14}px;animation-duration:${2+Math.random()*2}s`;
-      document.body.appendChild(el);
-      setTimeout(()=>el.remove(),4000);
-    },i*100);
-  }
+  for(let i=0;i<26;i++) setTimeout(()=>{
+    const el=document.createElement('span');
+    el.className='petal';
+    el.textContent=p[Math.floor(Math.random()*p.length)];
+    el.style.cssText=`left:${Math.random()*100}vw;top:-30px;font-size:${14+Math.random()*14}px;animation-duration:${2+Math.random()*2}s`;
+    document.body.appendChild(el);setTimeout(()=>el.remove(),4000);
+  },i*100);
 }
 
-// ── PAGE NAV ──
 function showPage(id,dot){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -727,7 +725,6 @@ function showPage(id,dot){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── COUNTDOWN ──
 function tick(){
   const diff=new Date('2026-09-12T13:00:00+02:00')-new Date();
   if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach((id,i)=>document.getElementById(id).textContent=['🥂','¡YA','ES','HOY!'][i]);return;}
@@ -738,25 +735,45 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-// ── ENVELOPE RAIN ──
-(function(){
-  const rain=document.getElementById('envRain');
-  ['✉️','💌','📩','✉️','💌','📩'].forEach(e=>{
-    const el=document.createElement('span');
-    el.className='env';el.textContent=e;
-    el.style.cssText=`left:${Math.random()*88}%;animation-duration:${1.8+Math.random()*2}s;animation-delay:${Math.random()*3}s;font-size:${14+Math.random()*10}px`;
-    rain.appendChild(el);
-  });
-})();
+// MÚSICA — YouTube iframe API (funciona en móvil)
+let ytPlayer = null;
+let ytReady  = false;
+let ytPlaying = false;
 
-// ── MUSIC ──
-let audio=null,playing=false;
-function toggleMusic(){
-  if(!audio){audio=new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');audio.loop=true;audio.volume=0.3;}
-  if(playing){audio.pause();document.getElementById('musicBtn').textContent='▶';playing=false;}
-  else{audio.play().catch(()=>{});document.getElementById('musicBtn').textContent='⏸';playing=true;}
+function onYouTubeIframeAPIReady(){
+  ytPlayer = new YT.Player('ytPlayer', {
+    height:'0', width:'0',
+    videoId: 'xmasGiqdA34', // Christina Perri - A Thousand Years (audio oficial)
+    playerVars:{ autoplay:0, controls:0, loop:1, playlist:'xmasGiqdA34' },
+    events:{
+      onReady: ()=>{ ytReady=true; },
+      onStateChange: e => {
+        ytPlaying = e.data === YT.PlayerState.PLAYING;
+        document.getElementById('musicBtn').textContent = ytPlaying ? '⏸' : '▶';
+      }
+    }
+  });
 }
-document.addEventListener('touchstart',function f(){toggleMusic();document.removeEventListener('touchstart',f);},{once:true});
+
+function toggleMusic(){
+  if(!ytReady){ return; }
+  if(ytPlaying){ ytPlayer.pauseVideo(); }
+  else { ytPlayer.playVideo(); }
+}
+
+// Cargar YouTube API
+const tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
+
+// Primer toque en móvil
+document.addEventListener('touchstart', function f(){
+  if(ytReady && !ytPlaying) ytPlayer.playVideo();
+  document.removeEventListener('touchstart',f);
+},{once:true});
 </script>
+
+<!-- YouTube player invisible -->
+<div id="ytPlayer" style="position:fixed;bottom:-100px;left:-100px;width:1px;height:1px;opacity:0;pointer-events:none"></div>
 </body>
 </html>
