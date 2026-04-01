@@ -408,8 +408,8 @@ Ana & Jorge 💛</code></div>
           <div class="g-card">
             <p>Cada confirmación, modificación o cancelación envía un email automáticamente a:</p>
             <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-              <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px"><span style="font-size:16px">📧</span><div><div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Jorge</div><div style="font-size:13px;color:var(--dark)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e8818f86898b8187d8d0dad0a88f85898184c68b8785">[email&#160;protected]</a></div></div></div>
-              <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px"><span style="font-size:16px">📧</span><div><div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Ana</div><div style="font-size:13px;color:var(--dark)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="59383738343a3a6d61193e34383035773a3634">[email&#160;protected]</a></div></div></div>
+              <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px"><span style="font-size:16px">📧</span><div><div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Jorge</div><div style="font-size:13px;color:var(--dark)">ignacio0828@gmail.com</div></div></div>
+              <div style="background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.25);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px"><span style="font-size:16px">📧</span><div><div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--gold);text-transform:uppercase">Ana</div><div style="font-size:13px;color:var(--dark)">anamcc48@gmail.com</div></div></div>
             </div>
           </div>
         </div>
@@ -493,10 +493,7 @@ Ana & Jorge 💛</code></div>
       <div class="section-card">
         <div class="section-card-header">
           <span class="section-card-title">👥 Todos los invitados</span>
-          <div style="display:flex;gap:8px;align-items:center">
-            <button class="refresh-btn" onclick="loadData()"><span>🔄</span> Actualizar</button>
-            <button class="btn-primary" onclick="toggleAddForm()">+ Añadir invitado</button>
-          </div>
+          <button class="btn-primary" onclick="toggleAddForm()">+ Añadir invitado</button>
         </div>
         <div class="add-form" id="addForm">
           <div class="form-grid">
@@ -522,7 +519,7 @@ Ana & Jorge 💛</code></div>
     <div class="view" id="view-confirmed">
       <div class="page-header"><h1 class="page-title">Confirmados</h1><p class="page-sub">Invitados que han confirmado asistencia</p></div>
       <div class="section-card">
-        <div class="section-card-header"><span class="section-card-title">✅ Asistirán</span><span class="section-card-count" id="confirmedCount"></span><button class="refresh-btn" onclick="loadData()" title="Actualizar"><span>🔄</span> Actualizar</button></div>
+        <div class="section-card-header"><span class="section-card-title">✅ Asistirán</span><span class="section-card-count" id="confirmedCount"></span></div>
         <div class="tbl-wrap"><table class="admin-table">
           <thead><tr><th>Código</th><th>Nombre</th><th>Personas</th><th>Alergias</th><th>Confirmado el</th></tr></thead>
           <tbody id="confirmedTable"><tr><td colspan="5" class="empty-state">Cargando...</td></tr></tbody>
@@ -534,7 +531,7 @@ Ana & Jorge 💛</code></div>
     <div class="view" id="view-cancelled">
       <div class="page-header"><h1 class="page-title">Cancelados</h1><p class="page-sub">No asistirán o han cancelado</p></div>
       <div class="section-card">
-        <div class="section-card-header"><span class="section-card-title">❌ No asistirán</span><span class="section-card-count" id="cancelledCount"></span><button class="refresh-btn" onclick="loadData()" title="Actualizar"><span>🔄</span> Actualizar</button></div>
+        <div class="section-card-header"><span class="section-card-title">❌ No asistirán</span><span class="section-card-count" id="cancelledCount"></span></div>
         <div class="tbl-wrap"><table class="admin-table">
           <thead><tr><th>Código</th><th>Nombre</th><th>Motivo</th><th>Fecha</th></tr></thead>
           <tbody id="cancelledTable"><tr><td colspan="4" class="empty-state">Cargando...</td></tr></tbody>
@@ -546,7 +543,7 @@ Ana & Jorge 💛</code></div>
     <div class="view" id="view-allergies">
       <div class="page-header"><h1 class="page-title">Alergias & Dietas</h1><p class="page-sub">Invitados con necesidades alimentarias especiales</p></div>
       <div class="section-card">
-        <div class="section-card-header"><span class="section-card-title">🥗 Restricciones alimentarias</span><span class="section-card-count" id="allergiesCount"></span><button class="refresh-btn" onclick="loadData()" title="Actualizar"><span>🔄</span> Actualizar</button></div>
+        <div class="section-card-header"><span class="section-card-title">🥗 Restricciones alimentarias</span><span class="section-card-count" id="allergiesCount"></span></div>
         <div class="tbl-wrap"><table class="admin-table">
           <thead><tr><th>Nombre</th><th>Personas</th><th>Restricción</th></tr></thead>
           <tbody id="allergiesTable"><tr><td colspan="3" class="empty-state">Cargando...</td></tr></tbody>
@@ -575,7 +572,7 @@ Ana & Jorge 💛</code></div>
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMMw48PHFg3--Eo4jbEbz1sSkoZP4I_zUk18bFyKk8_OpuKgsqw2-Rsiu8kpaoSm0H/exec';
 const BASE_URL   = 'https://ignacio0828.github.io/boda-ana-jorge';
 let adminUser='', adminPass='', cachedData=null, editingCode='';
@@ -818,4 +815,15 @@ async function api(params){
 // ── HELPERS ──
 function showLoading(v){document.getElementById('loadingOverlay').classList.toggle('show',v);}
 function showToast(msg){
-  const t=document.createElement('div')
+  const t=document.createElement('div');
+  t.className='toast';t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),3500);
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+
+// Auto-refresh 60s
+setInterval(()=>{if(adminUser)loadData();},60000);
+</script>
+</body>
+</html>
