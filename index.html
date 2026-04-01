@@ -630,21 +630,19 @@ async function sendRSVP(){
   document.getElementById('sendBtnIcon').textContent='';
   document.getElementById('sendBtnText').innerHTML='<span style="display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite"></span> Enviando...';
 
-  const allergy = document.getElementById('allergyInput').value.trim();
-  const seats   = selectedAttend==='yes' ? selectedSeats : 0;
-
-  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec'){
-    try {
-      const params = new URLSearchParams({
-        action:    'confirm',
-        code:      currentGuest.code,
-        name:      currentGuest.name,
-        seats:     seats,
-        allergy:   allergy || '—',
-        attending: selectedAttend
-      });
-      await fetch(SCRIPT_URL + '?' + params.toString());
-    } catch(e) {}
+  try {
+    const params = new URLSearchParams({
+      action:    'confirm',
+      code:      currentGuest.code,
+      name:      currentGuest.name,
+      seats:     selectedSeats,
+      allergy:   document.getElementById('allergyInput').value.trim() || '—',
+      attending: selectedAttend
+    });
+    const r = await fetch(SCRIPT_URL + '?' + params.toString());
+    await r.json();
+  } catch(e) {
+    console.log('Error:', e);
   }
 
   showConfirmed(selectedAttend==='yes');
