@@ -543,21 +543,7 @@ async function checkCode(){
   const code = document.getElementById('codeInput').value.trim().toUpperCase();
   if(!code) return;
 
-  // Si no hay URL configurada, modo demo
-  if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec'){
-    const DEMO = {
-      'MARIA2':{'name':'María García','maxSeats':2},
-      'CARLOS1':{'name':'Carlos López','maxSeats':1},
-      'FAMILIA4':{'name':'Familia Rodríguez','maxSeats':4},
-      'LAURA2':{'name':'Laura & Marcos','maxSeats':2},
-      'PEDRO1':{'name':'Pedro Sánchez','maxSeats':1},
-    };
-    const g = DEMO[code];
-    if(!g){ showCodeError(); return; }
-    currentGuest = {...g, code};
-    showForm(g);
-    return;
-  }
+
 
   document.getElementById('codeGate').classList.add('hidden');
   document.getElementById('codeLoading').style.display = 'block';
@@ -635,14 +621,13 @@ async function sendRSVP(){
       action:    'confirm',
       code:      currentGuest.code,
       name:      currentGuest.name,
-      seats:     selectedSeats,
+      seats:     selectedAttend==='yes' ? selectedSeats : 0,
       allergy:   document.getElementById('allergyInput').value.trim() || '—',
       attending: selectedAttend
     });
-    const r = await fetch(SCRIPT_URL + '?' + params.toString());
-    await r.json();
+    await fetch(SCRIPT_URL + '?' + params.toString());
   } catch(e) {
-    console.log('Error:', e);
+    console.log('Error enviando RSVP:', e);
   }
 
   showConfirmed(selectedAttend==='yes');
@@ -704,12 +689,10 @@ async function cancelRSVP(){
   if(!currentGuest) return;
   const btn = document.querySelector('.cancel-btn');
   btn.textContent='Cancelando...'; btn.disabled=true;
-  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbz4o-QexKz25SEG8a1e_l2AdfsnzFD_-o5h-J_lUtrQ-esc4EmIp0swKE8keKJpUNPN/exec'){
-    try{
-      const params = new URLSearchParams({ action:'cancel', code: currentGuest.code, name: currentGuest.name });
-      await fetch(SCRIPT_URL + '?' + params.toString());
-    }catch(e){}
-  }
+  try{
+    const params = new URLSearchParams({ action:'cancel', code: currentGuest.code, name: currentGuest.name });
+    await fetch(SCRIPT_URL + '?' + params.toString());
+  }catch(e){ console.log('Error cancelando:', e); }
   document.getElementById('rsvpForm').style.display='none';
   const conf = document.getElementById('rsvpConfirmed');
   conf.className='rsvp-confirmed show attend-no';
