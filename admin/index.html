@@ -819,3 +819,14 @@ async function api(params){
 function showLoading(v){document.getElementById('loadingOverlay').classList.toggle('show',v);}
 function showToast(msg){
   const t=document.createElement('div')
+  t.className='toast';t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),3500);
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+
+// Auto-refresh 60s
+setInterval(()=>{if(adminUser)loadData();},60000);
+</script>
+</body>
+</html>
