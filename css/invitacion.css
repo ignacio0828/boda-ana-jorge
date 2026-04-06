@@ -451,3 +451,59 @@ a,button{-webkit-tap-highlight-color:transparent}
 }
 
 
+
+
+/* ── TEXTOS SUELTOS — mismo estilo que recuadros superiores ── */
+
+/* Texto intro menú y frase final menú */
+.menu-page-subtitle {
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid rgba(201,169,110,.22) !important;
+  border-radius: 16px !important;
+  padding: 20px 24px !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 20px rgba(139,74,66,.06) !important;
+  font-size: 17px !important;
+  color: #4a2e2a !important;
+  line-height: 1.85 !important;
+  max-width: 100% !important;
+  margin: 0 20px !important;
+  text-align: center !important;
+}
+
+/* Frase final menú "Será una mezcla..." */
+.menu-closing-text {
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(201,169,110,.22);
+  border-radius: 16px;
+  padding: 20px 24px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(139,74,66,.06);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px !important;
+  color: #4a2e2a !important;
+  line-height: 1.9;
+  display: block;
+  text-align: center;
+}
+
+/* Frase final regalo "No importa el destino..." */
+.quote {
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid rgba(201,169,110,.22) !important;
+  border-radius: 16px !important;
+  padding: 20px 24px !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 20px rgba(139,74,66,.06) !important;
+  font-size: 17px !important;
+  color: #4a2e2a !important;
+  line-height: 1.85 !important;
+  display: block !important;
+}
+
+/* Quitar pseudoelementos de comillas en frases con fondo */
+.quote-section .quote::before,
+.quote-section .quote::after {
+  display: none !important;
+}
