@@ -209,55 +209,95 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-// MÚSICA — HTML5 Audio con fallback
-const MUSIC_SOURCES = [
-  'https://ia800605.us.archive.org/7/items/ChristinaPerriAThousandYears/Christina%20Perri%20-%20A%20Thousand%20Years.mp3',
-  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
-];
-let audio = null;
-let playing = false;
-let srcIndex = 0;
+// ── MÚSICA — YouTube API sin video, minutos 1:00 a 3:10 ──
+const YT_VIDEO_ID  = 'rtOvBOTyX00';
+const YT_START_SEC = 60;   // 1:00
+const YT_END_SEC   = 190;  // 3:10
 
-function initAudio(){
-  if(audio) return;
-  audio = new Audio();
-  audio.loop = true;
-  audio.volume = 0.35;
-  audio.preload = 'none';
-  audio.src = MUSIC_SOURCES[srcIndex];
-  audio.onerror = () => {
-    srcIndex = (srcIndex + 1) % MUSIC_SOURCES.length;
-    audio.src = MUSIC_SOURCES[srcIndex];
-    if(playing) audio.play().catch(()=>{});
-  };
-  audio.onplay  = () => { playing = true;  document.getElementById('musicBtn').textContent = '⏸'; };
-  audio.onpause = () => { playing = false; document.getElementById('musicBtn').textContent = '▶'; };
+let ytPlayer   = null;
+let ytReady    = false;
+let ytPlaying  = false;
+let ytEndTimer = null;
+
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('yt-hidden', {
+    height: '1', width: '1',
+    videoId: YT_VIDEO_ID,
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      start: YT_START_SEC,
+      end:   YT_END_SEC,
+      loop: 0,
+      modestbranding: 1,
+      playsinline: 1,
+      rel: 0
+    },
+    events: {
+      onReady: () => { ytReady = true; },
+      onStateChange: (e) => {
+        if (e.data === YT.PlayerState.PLAYING) {
+          ytPlaying = true;
+          document.getElementById('musicBtn').textContent = '⏸';
+          // Restart at 1:00 when it reaches 3:10
+          clearTimeout(ytEndTimer);
+          const remaining = (YT_END_SEC - ytPlayer.getCurrentTime()) * 1000;
+          ytEndTimer = setTimeout(() => {
+            ytPlayer.seekTo(YT_START_SEC, true);
+          }, Math.max(remaining, 1000));
+        } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+          ytPlaying = false;
+          document.getElementById('musicBtn').textContent = '▶';
+          clearTimeout(ytEndTimer);
+          if (e.data === YT.PlayerState.ENDED) {
+            ytPlayer.seekTo(YT_START_SEC, true);
+          }
+        }
+      }
+    }
+  });
 }
 
-function toggleMusic(){
-  initAudio();
-  if(playing){
-    audio.pause();
+function toggleMusic() {
+  if (!ytReady) return;
+  if (ytPlaying) {
+    ytPlayer.pauseVideo();
   } else {
-    audio.play().catch(e => {
-      console.log('Autoplay bloqueado, esperando interacción del usuario');
-    });
+    ytPlayer.seekTo(YT_START_SEC, true);
+    ytPlayer.playVideo();
   }
 }
 
-// En móvil, activar con primer toque
-document.addEventListener('touchstart', function f(){
-  initAudio();
-  audio.play().catch(()=>{});
-  document.removeEventListener('touchstart', f);
-}, {once: true, passive: true});
+// Load YouTube API
+(function() {
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
 
-// En escritorio, activar con primer click en cualquier lugar
-document.addEventListener('click', function f(){
-  initAudio();
-  if(!playing) audio.play().catch(()=>{});
+  // Hidden player container
+  const div = document.createElement('div');
+  div.id = 'yt-hidden';
+  div.style.cssText = 'position:fixed;bottom:-10px;left:-10px;width:1px;height:1px;opacity:0;pointer-events:none';
+  document.body.appendChild(div);
+})();
+
+// Autoplay on first touch (mobile)
+document.addEventListener('touchstart', function f() {
+  if (ytReady && !ytPlaying) {
+    ytPlayer.seekTo(YT_START_SEC, true);
+    ytPlayer.playVideo();
+  }
+  document.removeEventListener('touchstart', f);
+}, { once: true, passive: true });
+
+// Autoplay on first click (desktop)
+document.addEventListener('click', function f() {
+  if (ytReady && !ytPlaying) {
+    ytPlayer.seekTo(YT_START_SEC, true);
+    ytPlayer.playVideo();
+  }
   document.removeEventListener('click', f);
-}, {once: true});
+}, { once: true });
 
 // ── COPIAR TELÉFONO AL PORTAPAPELES ──
 function copyPhone(number, btn) {
