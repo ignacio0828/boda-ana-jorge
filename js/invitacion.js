@@ -1,3 +1,52 @@
+
+// ── MÚSICA — HTML5 Audio ──
+const MUSIC_SOURCES = [
+  'https://ia800605.us.archive.org/7/items/ChristinaPerriAThousandYears/Christina%20Perri%20-%20A%20Thousand%20Years.mp3',
+  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+];
+let audio = null;
+let playing = false;
+let srcIndex = 0;
+
+function initAudio(){
+  if(audio) return;
+  audio = new Audio();
+  audio.loop = true;
+  audio.volume = 0.35;
+  audio.preload = 'none';
+  audio.src = MUSIC_SOURCES[srcIndex];
+  audio.onerror = () => {
+    srcIndex = (srcIndex + 1) % MUSIC_SOURCES.length;
+    audio.src = MUSIC_SOURCES[srcIndex];
+    if(playing) audio.play().catch(()=>{});
+  };
+  audio.onplay  = () => { playing = true;  document.getElementById('musicBtn').textContent = '⏸'; };
+  audio.onpause = () => { playing = false; document.getElementById('musicBtn').textContent = '▶'; };
+}
+
+function toggleMusic(){
+  initAudio();
+  if(playing){
+    audio.pause();
+  } else {
+    audio.play().catch(()=>{});
+  }
+}
+
+// Activar con primer toque en móvil
+document.addEventListener('touchstart', function f(){
+  initAudio();
+  audio.play().catch(()=>{});
+  document.removeEventListener('touchstart', f);
+}, {once: true, passive: true});
+
+// Activar con primer click en escritorio
+document.addEventListener('click', function f(){
+  initAudio();
+  if(!playing) audio.play().catch(()=>{});
+  document.removeEventListener('click', f);
+}, {once: true});
+
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMMw48PHFg3--Eo4jbEbz1sSkoZP4I_zUk18bFyKk8_OpuKgsqw2-Rsiu8kpaoSm0H/exec';
 const WEDDING = {
   title:    'Boda de Ana & Jorge 🌸',
