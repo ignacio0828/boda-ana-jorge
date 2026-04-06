@@ -312,3 +312,118 @@ a,button{-webkit-tap-highlight-color:transparent}
   animation: fadeUp .3s ease;
   white-space: nowrap;
 }
+
+
+/* ── PUESTOS REDISEÑO v3 ── */
+.puesto-card {
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 24px rgba(139,74,66,.13);
+  animation: fadeUp .7s ease both;
+  background: white;
+}
+
+.puesto-header-band {
+  border-radius: 0 !important;
+  padding: 18px 20px 16px !important;
+  display: block !important;
+  position: relative;
+  min-height: 90px;
+}
+
+.puesto-num-inline {
+  font-family: 'Cinzel', serif !important;
+  font-size: 9px !important;
+  letter-spacing: 4px !important;
+  color: rgba(255,255,255,.7) !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  margin-bottom: 6px !important;
+}
+
+.puesto-name-inline {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 28px !important;
+  font-weight: 300 !important;
+  color: rgba(255,255,255,.95) !important;
+  line-height: 1.15 !important;
+  display: block !important;
+}
+
+.puesto-tag-corner {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.9);
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.puesto-body {
+  background: white !important;
+  border: none !important;
+  border-top: 1px solid rgba(201,169,110,.12) !important;
+  border-radius: 0 0 18px 18px !important;
+  padding: 18px 20px !important;
+}
+
+.puesto-desc {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;
+  font-size: 17px !important;
+  color: #4a2e2a !important;
+  line-height: 1.75 !important;
+  margin: 0 !important;
+}
+
+/* ── BIZUM HEADER FIX ── */
+.bizum-header-fixed {
+  background: linear-gradient(135deg, var(--deep-rose), #c97c6e);
+  padding: 16px 22px 14px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.bizum-header-fixed::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+}
+.presencia-header-title-fixed {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: rgba(255,255,255,.95);
+  font-style: italic;
+}
+
+/* ── TEXTOS DESCRIPTIVOS +1 tamaño, más oscuros ── */
+.presencia-text {
+  font-size: 18px !important;
+  color: #4a2e2a !important;
+  line-height: 1.85 !important;
+}
+.bizum-text {
+  font-size: 18px !important;
+  color: #4a2e2a !important;
+  line-height: 1.85 !important;
+}
+.menu-page-subtitle {
+  font-size: 18px !important;
+  color: #5a3530 !important;
+  line-height: 1.85 !important;
+}
+.tagline-enhanced {
+  font-size: 20px !important;
+  color: #5a3530 !important;
+  line-height: 1.8 !important;
+}
