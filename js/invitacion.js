@@ -1,7 +1,7 @@
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMMw48PHFg3--Eo4jbEbz1sSkoZP4I_zUk18bFyKk8_OpuKgsqw2-Rsiu8kpaoSm0H/exec';
 const WEDDING = {
   title:    'Boda de Ana & Jorge 🌸',
-  start:    '20260912T110000Z',
+  start:    '20260912T120000Z',
   end:      '20260912T220000Z',
   location: 'Hugo Caro Espacio, C/ Santa María de la Colina 11, Villanueva del Pardillo, Madrid',
   detail:   '¡Nos casamos! Únete a la celebración de Ana y Jorge.'
@@ -200,7 +200,7 @@ if(_autoCode){
 }
 
 function tick(){
-  const diff=new Date('2026-09-12T13:00:00+02:00')-new Date();
+  const diff=new Date('2026-09-12T14:00:00+02:00')-new Date();
   if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach((id,i)=>document.getElementById(id).textContent=['🥂','¡YA','ES','HOY!'][i]);return;}
   document.getElementById('cd-days').textContent  =String(Math.floor(diff/86400000)).padStart(2,'0');
   document.getElementById('cd-hours').textContent =String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
@@ -258,3 +258,37 @@ document.addEventListener('click', function f(){
   if(!playing) audio.play().catch(()=>{});
   document.removeEventListener('click', f);
 }, {once: true});
+
+// ── COPIAR TELÉFONO AL PORTAPAPELES ──
+function copyPhone(number, btn) {
+  navigator.clipboard.writeText(number).then(() => {
+    showCopyFeedback('📋 ' + number + ' copiado');
+  }).catch(() => {
+    // Fallback para móviles sin clipboard API
+    const el = document.createElement('textarea');
+    el.value = number;
+    el.style.position = 'fixed';
+    el.style.opacity = '0';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    showCopyFeedback('📋 ' + number + ' copiado');
+  });
+}
+
+function showCopyFeedback(msg) {
+  // Remove existing feedback
+  const existing = document.querySelector('.copy-feedback');
+  if (existing) existing.remove();
+
+  const el = document.createElement('div');
+  el.className = 'copy-feedback';
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => {
+    el.style.opacity = '0';
+    el.style.transition = 'opacity .3s';
+    setTimeout(() => el.remove(), 300);
+  }, 2000);
+}
