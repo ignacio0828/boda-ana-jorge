@@ -1,25 +1,26 @@
 
-// ── MÚSICA — HTML5 Audio ──
-const MUSIC_SOURCES = [
-  'https://ia800605.us.archive.org/7/items/ChristinaPerriAThousandYears/Christina%20Perri%20-%20A%20Thousand%20Years.mp3',
-  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
-];
-let audio = null;
+// ── MÚSICA — archivo local con segmento 1:00 - 4:32 ──
+const MUSIC_SRC   = 'assets/cancion.mp3';
+const MUSIC_START = 60;    // 1:00
+const MUSIC_END   = 272;   // 4:32
+
+let audio   = null;
 let playing = false;
-let srcIndex = 0;
 
 function initAudio(){
   if(audio) return;
-  audio = new Audio();
-  audio.loop = true;
-  audio.volume = 0.35;
-  audio.preload = 'none';
-  audio.src = MUSIC_SOURCES[srcIndex];
-  audio.onerror = () => {
-    srcIndex = (srcIndex + 1) % MUSIC_SOURCES.length;
-    audio.src = MUSIC_SOURCES[srcIndex];
-    if(playing) audio.play().catch(()=>{});
-  };
+  audio = new Audio(MUSIC_SRC);
+  audio.volume  = 0.35;
+  audio.preload = 'auto';
+  audio.currentTime = MUSIC_START;
+
+  // Loop entre MUSIC_START y MUSIC_END
+  audio.addEventListener('timeupdate', () => {
+    if(audio.currentTime >= MUSIC_END){
+      audio.currentTime = MUSIC_START;
+    }
+  });
+
   audio.onplay  = () => { playing = true;  document.getElementById('musicBtn').textContent = '⏸'; };
   audio.onpause = () => { playing = false; document.getElementById('musicBtn').textContent = '▶'; };
 }
@@ -29,6 +30,9 @@ function toggleMusic(){
   if(playing){
     audio.pause();
   } else {
+    if(audio.currentTime < MUSIC_START || audio.currentTime >= MUSIC_END){
+      audio.currentTime = MUSIC_START;
+    }
     audio.play().catch(()=>{});
   }
 }
