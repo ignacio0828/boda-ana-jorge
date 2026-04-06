@@ -450,6 +450,4 @@ a,button{-webkit-tap-highlight-color:transparent}
   padding-top: 0 !important;
 }
 
-/* Hide music bar */
-.music-bar { display: none !important; }
-.music-btn { display: none !important; }
+
