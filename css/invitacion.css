@@ -213,3 +213,102 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 @keyframes spin{to{transform:rotate(360deg)}}
 a,button{-webkit-tap-highlight-color:transparent}
 @media(max-width:480px){.names{font-size:clamp(44px,12vw,60px)}.countdown-num{font-size:34px}}
+
+/* ── CAMBIOS v2 ── */
+
+/* 3. Tagline enhanced */
+.tagline-enhanced {
+  font-size: 19px !important;
+  color: #6b3a34 !important;
+  font-weight: 400;
+  max-width: 340px !important;
+}
+
+/* 12. Textos descriptivos generales más grandes y oscuros */
+.presencia-text, .bizum-text, .menu-page-subtitle {
+  font-size: 17px !important;
+  color: #5a3530 !important;
+  line-height: 1.85 !important;
+}
+.puesto-desc {
+  font-size: 16px !important;
+  color: #4a2e2a !important;
+  line-height: 1.75 !important;
+}
+
+/* 13. Puesto cards - nuevo encabezado sin imagen */
+.puesto-header-band {
+  border-radius: 16px 16px 0 0;
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+.puesto-num-inline {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.65);
+  text-transform: uppercase;
+}
+.puesto-name-inline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: white;
+  font-weight: 300;
+  line-height: 1.1;
+}
+.puesto-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.7);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* 16. Presencia header pequeño */
+.presencia-header-small {
+  padding: 16px 22px 14px !important;
+}
+.presencia-header-small .presencia-header-title {
+  font-size: 20px !important;
+}
+
+/* 19. Bizum botones: Jorge verde, Ana rosa */
+.bizum-btn-jorge {
+  background: linear-gradient(135deg, #3a6b4a, #5a9b6a) !important;
+  box-shadow: 0 4px 16px rgba(58,107,74,.3) !important;
+}
+.bizum-btn-ana {
+  background: linear-gradient(135deg, #a05070, #c97c8e) !important;
+  box-shadow: 0 4px 16px rgba(160,80,112,.3) !important;
+}
+
+/* Botones bizum como button en vez de a */
+.bizum-btn {
+  cursor: pointer;
+  border: none;
+}
+.bizum-btn:active {
+  transform: translateY(-2px);
+}
+
+/* Feedback copiar */
+.copy-feedback {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #3a2820;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  z-index: 999;
+  animation: fadeUp .3s ease;
+  white-space: nowrap;
+}
