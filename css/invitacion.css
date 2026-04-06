@@ -427,3 +427,29 @@ a,button{-webkit-tap-highlight-color:transparent}
   color: #5a3530 !important;
   line-height: 1.8 !important;
 }
+
+
+/* ── PUESTOS v4 — tag esquina superior derecha, sin iconos ── */
+.puesto-tag-corner {
+  position: absolute !important;
+  top: 12px !important;
+  right: 14px !important;
+  left: auto !important;
+  background: rgba(0,0,0,.4) !important;
+  color: rgba(255,255,255,.92) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 9px !important;
+  letter-spacing: 3px !important;
+  padding: 5px 14px !important;
+  border-radius: 20px !important;
+  text-transform: uppercase !important;
+}
+
+.puesto-num-inline {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Hide music bar */
+.music-bar { display: none !important; }
+.music-btn { display: none !important; }
