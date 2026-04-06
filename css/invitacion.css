@@ -474,3 +474,14 @@ a,button{-webkit-tap-highlight-color:transparent}
   color: #5a3530 !important;
   line-height: 1.85 !important;
 }
+
+
+/* ── BIZUM BOTONES — degradado estilo imagen 2 ── */
+.bizum-btn-ana {
+  background: linear-gradient(to left, #c97c8e, #7b5ea7) !important;
+  box-shadow: 0 4px 16px rgba(123,94,167,.3) !important;
+}
+.bizum-btn-jorge {
+  background: linear-gradient(to left, #4a8b5a, #2d6b7a) !important;
+  box-shadow: 0 4px 16px rgba(45,107,122,.3) !important;
+}
