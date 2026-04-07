@@ -74,7 +74,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .contact-btn-num{font-size:11px;color:#aaa}
 .footer{text-align:center;padding:24px 20px 10px}
 .footer-hearts{font-size:18px;margin-bottom:6px;display:block;animation:pulse 2s infinite}
-.footer-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--green)}
+.footer-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--deep-rose)}
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(201,169,110,.4);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;padding:8px 16px;border-radius:50px;cursor:pointer;margin-bottom:20px;text-transform:uppercase}
 /* MENU */
 .menu-page-hero{text-align:center;padding:30px 28px 18px;position:relative;overflow:hidden}
